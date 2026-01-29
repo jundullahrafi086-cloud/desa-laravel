@@ -3,7 +3,7 @@
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg,  #6fcf97 0%, #6fcf97 100%);
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -17,9 +17,9 @@
     position: absolute;
     top: -50%;
     right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle,rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
   
@@ -32,7 +32,7 @@
   .main-container {
     background: white;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px  #6fcf97 ;
     margin: -3rem auto 3rem;
     position: relative;
     z-index: 1;
@@ -49,7 +49,7 @@
   .section-title h2 {
     font-size: 3rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #6fcf97; /* Judul jadi hijau */
     margin: 0;
     position: relative;
     display: inline-block;
@@ -63,13 +63,13 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97, rgba(247, 247, 150, 1));
     border-radius: 2px;
   }
   
   .section-subtitle {
     font-size: 1.2rem;
-    color: #6c757d;
+    color:  #6fcf97;
     margin-top: 1rem;
   }
   
@@ -85,7 +85,7 @@
   .pengumuman-card {
     background: white;
     border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 35px  #a9b8afff ;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -101,7 +101,7 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -112,7 +112,7 @@
   
   .pengumuman-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px #6fcf97;
   }
   
   /* Card Content */
@@ -134,13 +134,13 @@
     width: 50px;
     height: 50px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #6fcf97, rgba(247, 247, 150, 1));
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.3rem;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 10px 25px #6fcf97;
     transition: all 0.3s ease;
   }
   
@@ -157,7 +157,7 @@
   }
   
   .pengumuman-card:hover .card-title {
-    color: #667eea;
+    color: #6fcf97;
   }
   
   .card-meta {
@@ -170,7 +170,7 @@
   }
   
   .card-meta i {
-    color: #667eea;
+    color:  #6fcf97;
   }
   
   .card-text {
@@ -188,11 +188,11 @@
   .card-footer {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid  #6fcf97;
   }
   
   .read-more {
-    color: #667eea;
+    color: #6fcf97;
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;
@@ -202,7 +202,7 @@
   }
   
   .read-more:hover {
-    color: #764ba2;
+    color: #6fcf97;
     gap: 0.8rem;
   }
   
@@ -212,18 +212,18 @@
     padding: 4rem 2rem;
     background: #f8f9fa;
     border-radius: 20px;
-    color: #6c757d;
+    color:   #6c757d;
     margin: 0 3rem 3rem;
   }
   
   .empty-state i {
     font-size: 4rem;
-    color: #dee2e6;
+    color: #6fcf97;
     margin-bottom: 1rem;
   }
   
   .empty-state h4 {
-    color: #495057;
+    color: #6fcf97;
     margin-bottom: 1rem;
   }
   
@@ -244,8 +244,8 @@
   }
   
   .page-item .page-link {
-    color: #667eea;
-    border: 1px solid #e9ecef;
+    color:  #6fcf97;
+    border: 1px solid  #6fcf97;
     border-radius: 10px;
     padding: 0.75rem 1rem;
     font-weight: 600;
@@ -253,15 +253,23 @@
   }
   
   .page-item.active .page-link {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg,  #6fcf97, rgba(247, 247, 150, 1));
     border-color: transparent;
     color: white;
   }
   
   .page-item .page-link:hover {
-    background-color: rgba(102, 126, 234, 0.1);
-    border-color: #667eea;
-    color: #667eea;
+    background-color: rgba(111, 207, 151, 0.1);
+    border-color: #6fcf97;
+    color:  #6fcf97;
+  }
+  
+  /* Pengumuman Count Info */
+  .pengumuman-count-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #6c757d;
+    padding: 0 3rem;
   }
   
   /* Responsive */
@@ -289,6 +297,10 @@
     .pagination-container {
       padding: 0 2rem 2rem;
     }
+    
+    .pengumuman-count-info {
+      padding: 0 2rem;
+    }
   }
 </style>
 
@@ -305,9 +317,6 @@
           kegiatan, dan informasi layanan masyarakat yang disampaikan oleh pemerintah desa.
         </p>
       </div>
-      <div class="col-lg-4" data-aos="fade-left">
-        <img src="{{ asset('images/announcement-hero.svg') }}" alt="Pengumuman Hero" class="img-fluid">
-      </div>
     </div>
   </div>
 </div>
@@ -320,6 +329,11 @@
   </div>
   
   @if($pengumumans->count() > 0)
+    <!-- Pengumuman Count Info -->
+    <div class="pengumuman-count-info" data-aos="fade-up" data-aos-delay="100">
+      <p>Menampilkan {{ $pengumumans->count() }} dari {{ $pengumumans->total() }} pengumuman</p>
+    </div>
+    
     <div class="pengumuman-container">
       @foreach ($pengumumans as $pengumuman)
         <div class="pengumuman-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
@@ -343,7 +357,7 @@
             </div>
             
             <div class="card-footer">
-              <a href="/pengumuman/{{ $pengumuman->slug }}" class="read-more">
+              <a href="{{ route('pengumuman.show', $pengumuman->slug) }}" class="read-more">
                 Baca Selengkapnya <i class="ti ti-arrow-right"></i>
               </a>
             </div>

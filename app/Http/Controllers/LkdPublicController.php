@@ -12,12 +12,18 @@ class LkdPublicController extends Controller
         return view('lkd.index', compact('items'));
     }
 
-    public function show(Lkd $lkd)
+    public function show($slug)
     {
-        if (!$lkd->published) {
-            abort(404);
-        }
-        $lkd->load(['members' => fn($q) => $q->ordered()]);
-        return view('lkd.show', compact('lkd'));
+        $lkd = Lkd::where('slug', $slug)->firstOrFail();
+        
+        // Mengambil anggota dengan pagination (9 per halaman)
+        $members = $lkd->members()
+                  ->orderBy('order_no')
+                  ->orderBy('nama')
+                  ->paginate(9);
+        
+        // Kirim kedua variabel ke view
+        return view('lkd.show', compact('lkd', 'members'));
     }
+
 }

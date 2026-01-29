@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Authentication - Website Desa Kertamukti</title>
+  <title>Authentication - Website Desa Bojonggambir</title>
   <link rel="shortcut icon" type="image/" href="/assets/img/logo.png" />
   <link rel="stylesheet" href="admin/assets/css/styles.min.css" />
 </head>
@@ -19,7 +19,7 @@
         <div class="row justify-content-center w-100">
 
               @yield('auth')
-    
+
           </div>
         </div>
       </div>

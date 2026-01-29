@@ -3,7 +3,7 @@
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg,  #6fcf97 0%, #6fcf97 100%);
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -19,7 +19,7 @@
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
   
@@ -420,7 +420,7 @@
     <div class="row align-items-center">
       <div class="col-lg-8">
         <h1 class="display-4 fw-bold mb-4" data-aos="fade-right">
-          <i class="ti ti-file-report me-3"></i>Detail APBDesa
+          <i class="ti ti-file-report me-3"></i>Detail IPPD
         </h1>
         <p class="lead mb-0" data-aos="fade-right" data-aos-delay="100">
           Informasi lengkap dan detail tentang dokumen Anggaran Pendapatan dan Belanja Desa. 
@@ -450,7 +450,7 @@
               </li>
               <li class="breadcrumb-item">
                 <a href="/apbdesa">
-                  <i class="ti ti-chart-pie me-1"></i> APBDesa
+                  <i class="ti ti-chart-pie me-1"></i> IPPD
                 </a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
@@ -508,7 +508,7 @@
               <div class="document-header">
                 <div class="document-title">
                   <i class="ti ti-file-text"></i>
-                  <span>Dokumen APBDes</span>
+                  <span>Dokumen IPPD</span>
                 </div>
               </div>
               
@@ -541,7 +541,7 @@
         <div class="sidebar-card">
           <div class="card-body">
             <h4 class="sidebar-title">
-              <i class="ti ti-files me-2"></i> APBDes Lainnya
+              <i class="ti ti-files me-2"></i> IPPD Lainnya
             </h4>
             
             @forelse($related as $r)

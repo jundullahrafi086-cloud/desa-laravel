@@ -3,7 +3,7 @@
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6fcf97 0%, #6fcf97 100%);
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -11,33 +11,33 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .hero-section::before {
     content: '';
     position: absolute;
     top: -50%;
     right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
-  
+
   @keyframes float {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+
   /* Content Section */
   .content-section {
     background: white;
     border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px  #6fcf97;
     margin-bottom: 3rem;
     position: relative;
   }
-  
+
   .content-section::before {
     content: '';
     position: absolute;
@@ -45,19 +45,19 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97, #fce38a);
     border-radius: 20px 20px 0 0;
   }
-  
+
   .content-title {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2c3e50;
+    color:  #6fcf97;
     margin-bottom: 1rem;
     position: relative;
     display: inline-block;
   }
-  
+
   .content-title::after {
     content: '';
     position: absolute;
@@ -65,16 +65,16 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #6fcf97, #fce38a);
     border-radius: 2px;
   }
-  
+
   .content-body {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #495057;
+    color: #2c3e50;
   }
-  
+
   /* Timeline Section */
   .timeline-section {
     background: #f8f9fa;
@@ -83,31 +83,34 @@
     margin-bottom: 3rem;
     position: relative;
   }
-  
+
   .timeline-header {
     display: flex;
     align-items-center center;
     margin-bottom: 2.5rem;
   }
-  
+
   .timeline-title {
     font-size: 2rem;
     font-weight: 600;
-    color: #2c3e50;
+    background: linear-gradient(45deg, #6fcf97, #fce38a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 0;
-  }
-  
+}
+
+
   .timeline-subtitle {
-    color: #6c757d;
+    color: #6fcf97; /* hijau */
     font-size: 1.1rem;
     margin-left: 1rem;
-  }
-  
+}
+
   .timeline {
     position: relative;
     padding-left: 2rem;
   }
-  
+
   .timeline::before {
     content: '';
     position: absolute;
@@ -115,21 +118,21 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(180deg, #667eea, #764ba2);
+    background: linear-gradient(180deg, #6fcf97, #fce38a);
     border-radius: 3px;
   }
-  
+
   .timeline-item {
     position: relative;
     padding-bottom: 2rem;
     margin-left: 2rem;
     transition: all 0.3s ease;
   }
-  
+
   .timeline-item:last-child {
     padding-bottom: 0;
   }
-  
+
   .timeline-item::before {
     content: '';
     position: absolute;
@@ -139,39 +142,39 @@
     height: 20px;
     border-radius: 50%;
     background: white;
-    border: 4px solid #667eea;
-    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
+    border: 4px solid #fce38a;
+    box-shadow: 0 0 0 4px #6fcf97;
     z-index: 1;
     transition: all 0.3s ease;
   }
-  
+
   .timeline-item:hover::before {
     transform: scale(1.2);
-    box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 0 8px  #6fcf97;
   }
-  
+
   .timeline-card {
     background: white;
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px  #6fcf97;
     transition: all 0.3s ease;
     display: flex;
     gap: 2rem;
     align-items: center;
   }
-  
+
   .timeline-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px  #6fcf97;
   }
-  
+
   /* Photo Container */
   .photo-container {
     flex-shrink: 0;
     position: relative;
   }
-  
+
   .photo-wrapper {
     width: 120px;
     height: 120px;
@@ -181,31 +184,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px  #6fcf97;
     transition: all 0.3s ease;
   }
-  
+
   .timeline-card:hover .photo-wrapper {
     transform: scale(1.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px #6fcf97;
   }
-  
+
   .photo-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  
+
   .photo-icon {
     font-size: 3rem;
     color: #dee2e6;
   }
-  
+
   /* Info Container */
   .info-container {
     flex-grow: 1;
   }
-  
+
   .info-header {
     display: flex;
     flex-wrap: wrap;
@@ -213,56 +216,56 @@
     gap: 1rem;
     margin-bottom: 1rem;
   }
-  
+
   .info-name {
     font-size: 1.3rem;
     font-weight: 700;
     color: #2c3e50;
     margin: 0;
   }
-  
+
   .periode-badge {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #6fcf97, #fce38a);
     color: white;
     padding: 0.4rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 5px 15px #6fcf97;
   }
-  
+
   .info-catatan {
     color: #6c757d;
     font-size: 1rem;
     line-height: 1.6;
     margin: 0;
   }
-  
+
   /* Empty State */
   .empty-state {
     text-align: center;
     padding: 4rem 2rem;
     background: white;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px #6fcf97;
   }
-  
+
   .empty-state i {
     font-size: 4rem;
     color: #dee2e6;
     margin-bottom: 1rem;
   }
-  
+
   .empty-state h4 {
     color: #495057;
     margin-bottom: 1rem;
   }
-  
+
   .empty-state p {
     color: #6c757d;
     margin-bottom: 1.5rem;
   }
-  
+
   /* Alert Styles */
   .alert-custom {
     border: none;
@@ -270,17 +273,17 @@
     padding: 1.5rem;
     margin-bottom: 2rem;
   }
-  
+
   .alert-info {
-    background: linear-gradient(135deg, #d1ecf1, #667eea);
-    color: #0c5460;
+    background: linear-gradient(135deg, #d1ecf1, #6fcf97);
+    color: #6fcf97;
   }
-  
+
   .alert-warning {
-    background: linear-gradient(135deg, #fff3cd, #ffc107);
+    background: linear-gradient(135deg, #fff3cd, #6fcf97);
     color: #664d03;
   }
-  
+
   /* Responsive */
   @media (max-width: 768px) {
     .timeline-card {
@@ -288,17 +291,17 @@
       text-align: center;
       gap: 1.5rem;
     }
-    
+
     .photo-wrapper {
       width: 100px;
       height: 100px;
       margin: 0 auto;
     }
-    
+
     .info-header {
       justify-content: center;
     }
-    
+
     .content-section,
     .timeline-section {
       padding: 2rem;
@@ -315,12 +318,9 @@
           <i class="ti ti-history me-3"></i>Sejarah Kepemimpinan Desa
         </h1>
         <p class="lead mb-0" data-aos="fade-right" data-aos-delay="100">
-          Menelusuri perjalanan sejarah kepemimpinan desa dari masa ke masa. 
+          Menelusuri perjalanan sejarah kepemimpinan desa dari masa ke masa.
           Dari para pendiri hingga pemimpin saat ini, semua telah berkontribusi dalam membangun desa kita.
         </p>
-      </div>
-      <div class="col-lg-4" data-aos="fade-left">
-        <img src="{{ asset('images/sejarah-hero.svg') }}" alt="Sejarah Hero" class="img-fluid">
       </div>
     </div>
   </div>
@@ -333,7 +333,7 @@
       <h2 class="content-title">
         <i class="ti ti-book me-3"></i>{{ $sejarah->judul }}
       </h2>
-      
+
       <div class="content-body">
         {!! $sejarah->body !!}
       </div>
@@ -356,7 +356,7 @@
       </h2>
       <span class="timeline-subtitle">per periode jabatan</span>
     </div>
-    
+
     @if($kepalaDesas->count() > 0)
       <div class="timeline">
         @foreach($kepalaDesas as $k)
@@ -374,7 +374,7 @@
                   @endif
                 </div>
               </div>
-              
+
               <!-- Info Container -->
               <div class="info-container">
                 <div class="info-header">
@@ -383,13 +383,13 @@
                     <i class="ti ti-calendar me-1"></i>{{ $k->periode_label }}
                   </span>
                 </div>
-                
+
                 @if($k->catatan)
                   <p class="info-catatan">
                     <i class="ti ti-file-text me-2"></i>{{ $k->catatan }}
                   </p>
                 @endif
-                
+
                 <!-- Status Badge -->
                 <div class="mt-2">
                   @if($k->is_active)
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function() {
     card.addEventListener('mouseenter', function() {
       this.style.transform = 'translateY(-5px)';
     });
-    
+
     card.addEventListener('mouseleave', function() {
       this.style.transform = 'translateY(0)';
     });
@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
         before.style.transform = 'scale(1.2)';
       }
     });
-    
+
     item.addEventListener('mouseleave', function() {
       const before = this.querySelector('::before');
       if (before) {

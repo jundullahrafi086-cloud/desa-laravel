@@ -8,9 +8,9 @@
   }
 @endphp
 <style>
-  /* Hero Section */
+  /* Hero Section - DIUBAH MENJADI HIJAU SEPERTI HALAMAN PENGUMUMAN */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6fcf97 0%, #6fcf97 100%);
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -24,9 +24,9 @@
     position: absolute;
     top: -50%;
     right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
   
@@ -35,23 +35,63 @@
     100% { transform: rotate(360deg); }
   }
   
-  /* Card Styles */
-  .lkd-card {
-    border: none;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+  /* Main Container - DITAMBAHKAN */
+  .main-container {
     background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(111, 207, 151, 0.2);
+    margin: -3rem auto 3rem;
     position: relative;
+    z-index: 1;
+    padding: 2rem 0;
+  }
+  
+  /* Section Title - DITAMBAHKAN */
+  .section-title {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    position: relative;
+  }
+  
+  .section-title h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #6fcf97;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #6fcf97, rgba(247, 247, 150, 1));
+    border-radius: 2px;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: #6fcf97;
+    margin-top: 1rem;
+  }
+  
+  /* Card Styles - DIUBAH MENGGUNAKAN STYLE DARI HALAMAN PENGUMUMAN */
+  .lkd-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(169, 184, 255, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
-  }
-  
-  .lkd-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: none;
   }
   
   .lkd-card::before {
@@ -61,13 +101,18 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97, rgba(247, 247, 150, 1));
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
   
   .lkd-card:hover::before {
     transform: scaleX(1);
+  }
+  
+  .lkd-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(111, 207, 151, 0.3);
   }
   
   .lkd-card .card-img-top {
@@ -88,76 +133,90 @@
   }
   
   .lkd-card .card-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #6fcf97;
     margin-bottom: 0.75rem;
     transition: color 0.3s ease;
   }
   
   .lkd-card:hover .card-title {
-    color: #667eea;
+    color: #5ab885;
   }
   
   .lkd-card .card-text {
-    color: #6c757d;
-    font-size: 0.95rem;
+    color: #495057;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
     flex: 1;
   }
   
   .lkd-card .btn-primary {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #6fcf97, rgba(247, 247, 150, 1));
     border: none;
     border-radius: 25px;
     padding: 0.5rem 1.5rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    color: white;
   }
   
   .lkd-card .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 20px rgba(111, 207, 151, 0.3);
+    background: linear-gradient(135deg, #5ab885, rgba(247, 247, 150, 1));
   }
   
-  /* Badge Styles */
+  /* Badge Styles - DIUBAH WARNA NYA */
   .lkd-badge {
     position: absolute;
     top: 15px;
     right: 15px;
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
-    color: #495057;
+    color: #6fcf97;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
     z-index: 2;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(111, 207, 151, 0.2);
   }
   
-  /* Empty State */
+  .lkd-badge i {
+    color: #6fcf97;
+  }
+  
+  /* Empty State - DIUBAH WARNA NYA */
   .empty-state {
     text-align: center;
     padding: 4rem 2rem;
-    color: #6c757d;
+    background: rgba(111, 207, 151, 0.1);
+    border-radius: 20px;
+    color: #6fcf97;
+    margin: 0 3rem 3rem;
   }
   
   .empty-state i {
     font-size: 4rem;
-    color: #dee2e6;
+    color: #6fcf97;
     margin-bottom: 1rem;
   }
   
-  /* Pagination Styles */
+  .empty-state h4 {
+    color: #6fcf97;
+    margin-bottom: 1rem;
+  }
+  
+  /* Pagination Styles - DIUBAH WARNA NYA */
   .pagination {
     margin-top: 3rem;
   }
   
   .page-link {
-    border: none;
-    color: #667eea;
+    border: 1px solid #6fcf97;
+    color: #6fcf97;
     margin: 0 3px;
     border-radius: 10px;
     padding: 0.75rem 1rem;
@@ -165,18 +224,22 @@
   }
   
   .page-item.active .page-link {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    border: none;
+    background: linear-gradient(135deg, #6fcf97, rgba(247, 247, 150, 1));
+    border-color: transparent;
+    color: white;
   }
   
   .page-link:hover {
+    background-color: rgba(111, 207, 151, 0.1);
+    border-color: #6fcf97;
+    color: #5ab885;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 5px 15px rgba(111, 207, 151, 0.3);
   }
   
-  /* Stats Section */
+  /* Stats Section - DIUBAH WARNA NYA */
   .stats-section {
-    background: #f8f9fa;
+    background: rgba(111, 207, 151, 0.1);
     padding: 3rem 0;
     margin-bottom: 3rem;
     border-radius: 20px;
@@ -187,18 +250,18 @@
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 20px rgba(111, 207, 151, 0.1);
     transition: all 0.3s ease;
   }
   
   .stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(111, 207, 151, 0.2);
   }
   
   .stat-card i {
     font-size: 3rem;
-    color: #667eea;
+    color: #6fcf97;
     margin-bottom: 1rem;
   }
   
@@ -209,54 +272,63 @@
     margin-bottom: 0.5rem;
   }
   
-  /* Filter Section */
-  .filter-section {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
+  /* Back to Top Button - DIUBAH WARNA NYA */
+  #backToTop {
+    background: linear-gradient(135deg, #6fcf97, rgba(247, 247, 150, 1));
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(111, 207, 151, 0.3);
   }
   
-  .filter-btn {
-    border: 2px solid #e9ecef;
-    background: white;
-    color: #6c757d;
-    border-radius: 25px;
-    padding: 0.5rem 1.5rem;
-    margin: 0.25rem;
-    transition: all 0.3s ease;
+  #backToTop:hover {
+    background: linear-gradient(135deg, #5ab885, rgba(247, 247, 150, 1));
+    transform: translateY(-3px);
   }
   
-  .filter-btn:hover, .filter-btn.active {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    border-color: transparent;
-    color: white;
-    transform: translateY(-2px);
+  /* Responsive - DITAMBAHKAN */
+  @media (max-width: 768px) {
+    .section-title h2 {
+      font-size: 2rem;
+    }
+    
+    .lkd-card .card-title {
+      font-size: 1.3rem;
+    }
+    
+    .stats-section {
+      padding: 2rem 0;
+    }
+    
+    .stat-card {
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
   }
 </style>
-
 <!-- Hero Section -->
 <div class="hero-section">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <h1 class="display-4 fw-bold mb-4" data-aos="fade-right">
-          Lembaga Kemasyarakatan Desa
+          <i class="ti ti-building me-3"></i>Lembaga Kemasyarakatan Desa
         </h1>
-        <p class="lead mb-4" data-aos="fade-right" data-aos-delay="100">
+        <p class="lead mb-0" data-aos="fade-right" data-aos-delay="100">
           Mengenal lebih dekat berbagai lembaga kemasyarakatan yang aktif di desa kami. 
           Dari BPD hingga PKK, semua bekerja sama untuk membangun desa yang lebih baik.
         </p>
-        
       </div>
-      
     </div>
   </div>
 </div>
 
 <!-- Stats Section -->
-<div class="stats-section">
+<div class="stats-section" data-aos="fade-up">
   <div class="container">
     <div class="row g-4">
       <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
@@ -291,80 +363,81 @@
   </div>
 </div>
 
-
-
-<!-- LKD List Section -->
-<div class="container" id="lkd-list">
-  <h2 class="text-center mb-5" data-aos="fade-up">
-    <i class="ti ti-building me-3"></i>Daftar LKD Aktif
-  </h2>
+<!-- Main Content -->
+<div class="main-container" data-aos="fade-up">
+  <div class="section-title">
+    <h2><i class="ti ti-building me-3"></i>Daftar LKD Aktif</h2>
+    <p class="section-subtitle">Lembaga Kemasyarakatan Desa</p>
+  </div>
   
-  <div class="row g-4">
-    @forelse($items as $lkd)
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-        <div class="lkd-card">
-          <!-- Badge Status -->
-          <span class="lkd-badge">
-            <i class="ti ti-circle-filled me-1"></i>{{ $lkd->published ? 'Aktif' : 'Draft' }}
-          </span>
-          
-          <!-- Cover Image - PERBAIKAN DISINI -->
-          @if($lkd->cover_path)
-            <img src="{{ getPhotoUrl($lkd->cover_path, 'https://via.placeholder.com/400x300?text=Cover+LKD') }}" 
-                 class="card-img-top" 
-                 alt="{{ $lkd->judul }}">
-          @else
-            <div class="card-img-top bg-light d-flex align-items-center justify-content-center">
-              <i class="ti ti-photo-off" style="font-size: 3rem; color: #dee2e6;"></i>
-            </div>
-          @endif
-          
-          <!-- Card Body -->
-          <div class="card-body">
-            <h5 class="card-title">{{ $lkd->judul }}</h5>
-            <p class="card-text">
-              {{ \Illuminate\Support\Str::limit(strip_tags($lkd->deskripsi), 120) }}
-            </p>
+  <div class="container" id="lkd-list">
+    <div class="row g-4">
+      @forelse($items as $lkd)
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+          <div class="lkd-card">
+            <!-- Badge Status -->
+            <span class="lkd-badge">
+              <i class="ti ti-circle-filled me-1"></i>{{ $lkd->published ? 'Aktif' : 'Draft' }}
+            </span>
             
-            <!-- Meta Info -->
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-muted small">
-                <i class="ti ti-users me-1"></i>
-                {{ $lkd->members()->count() }} Anggota
-              </span>
-              <span class="text-muted small">
-                <i class="ti ti-calendar me-1"></i>
-                {{ optional($lkd->updated_at)->format('d M Y') }}
-              </span>
-            </div>
+            <!-- Cover Image -->
+            @if($lkd->cover_path)
+              <img src="{{ getPhotoUrl($lkd->cover_path, 'https://via.placeholder.com/400x300?text=Cover+LKD') }}" 
+                   class="card-img-top" 
+                   alt="{{ $lkd->judul }}">
+            @else
+              <div class="card-img-top bg-light d-flex align-items-center justify-content-center">
+                <i class="ti ti-photo-off" style="font-size: 3rem; color: #dee2e6;"></i>
+              </div>
+            @endif
             
-            <!-- Action Button -->
-            <a href="{{ route('lkd.show',$lkd) }}" class="btn btn-primary w-100">
-              <i class="ti ti-eye me-2"></i>Lihat Detail
+            <!-- Card Body -->
+            <div class="card-body">
+              <h5 class="card-title">{{ $lkd->judul }}</h5>
+              <p class="card-text">
+                {{ \Illuminate\Support\Str::limit(strip_tags($lkd->deskripsi), 120) }}
+              </p>
+              
+              <!-- Meta Info -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted small">
+                  <i class="ti ti-users me-1"></i>
+                  {{ $lkd->members()->count() }} Anggota
+                </span>
+                <span class="text-muted small">
+                  <i class="ti ti-calendar me-1"></i>
+                  {{ optional($lkd->updated_at)->format('d M Y') }}
+                </span>
+              </div>
+              
+              <!-- Action Button -->
+              <a href="{{ route('lkd.show',$lkd) }}" class="btn btn-primary w-100">
+                <i class="ti ti-eye me-2"></i>Lihat Detail
+              </a>
+            </div>
+          </div>
+        </div>
+      @empty
+        <div class="col-12">
+          <div class="empty-state" data-aos="fade-up">
+            <i class="ti ti-building-community"></i>
+            <h4>Belum ada data LKD</h4>
+            <p>Data lembaga kemasyarakatan desa belum tersedia.</p>
+            <a href="{{ route('home') }}" class="btn btn-primary">
+              <i class="ti ti-home me-2"></i>Kembali ke Beranda
             </a>
           </div>
         </div>
-      </div>
-    @empty
-      <div class="col-12">
-        <div class="empty-state" data-aos="fade-up">
-          <i class="ti ti-building-community"></i>
-          <h4>Belum ada data LKD</h4>
-          <p class="text-muted">Data lembaga kemasyarakatan desa belum tersedia.</p>
-          <a href="{{ route('home') }}" class="btn btn-primary">
-            <i class="ti ti-home me-2"></i>Kembali ke Beranda
-          </a>
-        </div>
-      </div>
-    @endforelse
-  </div>
-  
-  <!-- Pagination -->
-  @if($items->hasPages())
-    <div class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-      {{ $items->links() }}
+      @endforelse
     </div>
-  @endif
+    
+    <!-- Pagination -->
+    @if($items->hasPages())
+      <div class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        {{ $items->links() }}
+      </div>
+    @endif
+  </div>
 </div>
 
 <!-- Back to Top Button -->
@@ -372,7 +445,6 @@
   <i class="ti ti-arrow-up"></i>
 </button>
 @endsection
-
 @push('scripts')
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -383,10 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
     easing: 'ease-in-out',
     once: true
   });
-
-  // Filter functionality
   
-
   // Back to top button
   const backToTopButton = document.getElementById('backToTop');
   
@@ -404,12 +473,12 @@ document.addEventListener('DOMContentLoaded', function() {
       behavior: 'smooth'
     });
   });
-
+  
   // Add hover effect to cards
   const cards = document.querySelectorAll('.lkd-card');
   cards.forEach(card => {
     card.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-15px)';
+      this.style.transform = 'translateY(-10px)';
     });
     
     card.addEventListener('mouseleave', function() {
@@ -419,7 +488,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endpush
-
 @push('styles')
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
 @endpush

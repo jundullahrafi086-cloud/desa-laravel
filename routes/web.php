@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\BltController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\kategoriController; // (biarkan sesuai nama class yang kamu pakai)
 use App\Http\Controllers\WilayahController;
@@ -20,7 +21,7 @@ use App\Http\Controllers\VisiMisiController;
 use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\DataDesaController;
 use App\Http\Controllers\PetaDesaController;
-use App\Http\Controllers\PerpusController; 
+use App\Http\Controllers\PerpusController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LayananController;
@@ -28,6 +29,7 @@ use App\Http\Controllers\GalleryController;       // publik
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AnggaranController;      // publik APBDes
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProkerKknUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\Admin\LkdController;
 use App\Http\Controllers\Admin\LkdMemberController;
+use App\Http\Controllers\AdminBltController;
 use App\Http\Controllers\AdminBeritaController;
 use App\Http\Controllers\AdminKategoriController;
 use App\Http\Controllers\AdminWilayahController;
@@ -52,7 +55,7 @@ use App\Http\Controllers\AdminLayananController;
 use App\Http\Controllers\AdminAnnouncementController;
 use App\Http\Controllers\AdminAnggaranController;
 use App\Http\Controllers\AdminPekerjaanController;
-use App\Http\Controllers\AdminPerpusController; 
+use App\Http\Controllers\AdminPerpusController;
 use App\Http\Controllers\AdminJenisKelaminController;
 use App\Http\Controllers\AdminAgamaController;
 use App\Http\Controllers\AdminVideoProfileController;
@@ -61,6 +64,7 @@ use App\Http\Controllers\AdminIdentitasSitusController;
 use App\Http\Controllers\AdminKepalaDesaController;
 use App\Http\Controllers\AdminGalleryGroupController;
 use App\Http\Controllers\AdminGalleryController;
+use App\Http\Controllers\AdminProkerKknController;
 /*
 |--------------------------------------------------------------------------
 | WEB ROUTES
@@ -83,6 +87,9 @@ Route::get('/perpus/{slug}', [PerpusController::class, 'show'])->name('perpus.sh
 // LKD (Publik)
 Route::get('/lkd', [LkdPublicController::class, 'index'])->name('lkd.index');
 Route::get('/lkd/{lkd:slug}', [LkdPublicController::class, 'show'])->name('lkd.show');
+Route::get('/proker-kkn', [ProkerKknUserController::class, 'index'])->name('proker-kkn.index');
+Route::get('/proker-kkn/{slug}', [ProkerKknUserController::class, 'show'])->name('proker-kkn.show');
+Route::get('/proker-kkn/kategori/{kategori}', [ProkerKknUserController::class, 'byCategory'])->name('proker-kkn.category');
 
 
 Route::get('/kategori/{kategori:slug}', [kategoriController::class, 'index']);
@@ -96,6 +103,8 @@ Route::get('/umkm', [UmkmController::class, 'index']);
 Route::get('/umkm/{umkm:slug}', [UmkmController::class, 'detail']);
 Route::get('/kontak', [KontakController::class, 'index']);
 Route::get('/layanan', [LayananController::class, 'index']);
+Route::get('/blt', [BltController::class, 'index'])->name('blt.public');
+Route::post('/blt/pilih-metode', [BltController::class, 'updateMetode'])->name('blt.pilih-metode');
 
 
 /* GALERI (Publik) */
@@ -161,7 +170,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     ]);
 
     // ENDPOINT BANTUAN (AJAX ONLY)
-     
+
 Route::resource('lkd', LkdController::class)->names('admin.lkd');
 
 // Nested members (lebih eksplisit & aman)
@@ -196,6 +205,12 @@ Route::delete('lkd/{lkd}/members/{member}', [LkdMemberController::class, 'destro
     /* Pekerjaan */
     Route::resource('pekerjaan', AdminPekerjaanController::class);
 
+    /* Blt */
+    Route::get('blt/export', [AdminBltController::class, 'export'])->name('blt.export');
+    Route::post('blt/import', [AdminBltController::class, 'import'])->name('blt.import');
+    Route::resource('blt', AdminBltController::class);
+
+
     /* UMKM */
     Route::get('umkm/slug', [AdminUmkmController::class, 'slug']);
     Route::resource('umkm', AdminUmkmController::class);
@@ -223,7 +238,7 @@ Route::delete('lkd/{lkd}/members/{member}', [LkdMemberController::class, 'destro
     /* =====================
      * GALLERY (ADMIN) — gunakan FQCN agar tidak error missing import
      * ===================== */
-   
+
    Route::resource('gallery', AdminGalleryController::class);
 
     /* =====================
@@ -234,6 +249,9 @@ Route::delete('lkd/{lkd}/members/{member}', [LkdMemberController::class, 'destro
 
     Route::get('pengumuman/slug', [AdminAnnouncementController::class, 'slug'])
     ->name('admin.pengumuman.slug');
+
+    Route::resource('proker-kkn', AdminProkerKknController::class)->names('admin.proker-kkn');
+    Route::get('proker-kkn/slug', [AdminProkerKknController::class, 'slug'])->name('admin.proker-kkn.slug');
 
 // resource CRUD
      Route::resource('pengumuman', AdminAnnouncementController::class)

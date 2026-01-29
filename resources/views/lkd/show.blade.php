@@ -1,16 +1,10 @@
 @extends('layouts.main')
 @section('title',$lkd->judul)
 @section('content')
-@php
-  // Helper function untuk menampilkan foto (sesuai pola sebelumnya)
-  function getPhotoUrl($path, $placeholder = 'https://via.placeholder.com/400x300?text=Foto') {
-    return $path ? asset('storage/' . $path) : $placeholder;
-  }
-@endphp
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg,  #6fcf97 0%, #6fcf97 100%);
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -26,7 +20,7 @@
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle,  rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
   
@@ -36,22 +30,42 @@
   }
   
   /* Cover Container */
-  .cover-container {
+  .cover-container{
     position: relative;
     overflow: hidden;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px #6fcf97;
     margin-bottom: 3rem;
-    background: #f8f9fa;
     min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background:
+      radial-gradient(closest-side at 50% 50%,
+        #a7edc6 0%,         /* pusat lebih terang tempat logo */
+        #82dcae 40%,
+        #6fcf97 70%,
+        #59b986 100%),
+      linear-gradient(90deg,
+        rgba(255,255,255,.14) 0%,
+        rgba(255,255,255,0) 18%,
+        rgba(255,255,255,0) 82%,
+        rgba(255,255,255,.14) 100%),
+      #6fcf97;
   }
+
+  /* Opsional: atur gambar/logo agar proporsional */
+  .cover-container img{
+    max-width: min(90%, 560px);
+    max-height: 320px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,.18));
+  }
+
   
   .cover-container img {
     width: 100%;
-    height: 400px;
+    height: 300px;
     object-fit: cover;
     transition: transform 0.5s ease;
   }
@@ -77,7 +91,7 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97, rgba(247, 247, 150, 1));
     border-radius: 20px 20px 0 0;
   }
   
@@ -97,13 +111,13 @@
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #6fcf97, rgba(247, 247, 150, 1));
     border-radius: 2px;
   }
   
   .info-description {
     font-size: 1.1rem;
-    color: #6c757d;
+    color: #0c0e0cff;
     line-height: 1.8;
     margin-bottom: 2rem;
   }
@@ -120,12 +134,12 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #6c757d;
+    color: #171d1aff;
   }
   
   .meta-item i {
     font-size: 1.2rem;
-    color: #667eea;
+    color: #6fcf97;
   }
   
   /* Members Section */
@@ -136,10 +150,10 @@
   .section-title {
     font-size: 2rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #6fcf97;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #e9ecef;
+    border-bottom: 2px solid  #6fcf97;
     position: relative;
   }
   
@@ -150,7 +164,7 @@
     left: 0;
     width: 60px;
     height: 2px;
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg, #6fcf97, rgba(247, 247, 150, 1));
   }
   
   /* Member Cards */
@@ -170,7 +184,7 @@
   
   .member-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px  #6fcf97;
   }
   
   .member-photo {
@@ -186,7 +200,7 @@
   
   .member-card:hover .member-photo {
     transform: scale(1.1);
-    border-color: #667eea;
+    border-color: #6fcf97;
   }
   
   .member-name {
@@ -203,7 +217,7 @@
   }
   
   .member-badge {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg,  #6fcf97, rgba(247, 247, 150, 1));
     color: white;
     padding: 0.4rem 1rem;
     border-radius: 20px;
@@ -238,7 +252,7 @@
     position: fixed;
     bottom: 2rem;
     left: 2rem;
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg,  #6fcf97, rgba(247, 247, 150, 1));
     color: white;
     border: none;
     border-radius: 50%;
@@ -247,14 +261,54 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px #6fcf97;
     transition: all 0.3s ease;
     z-index: 1000;
   }
   
   .back-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 15px 40px #6fcf97;
+  }
+  
+  /* Pagination Styles */
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  
+  .pagination {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .page-item .page-link {
+    color: #6fcf97;
+    border: 1px solid #6fcf97;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .page-item.active .page-link {
+    background: linear-gradient(135deg, #6fcf97, rgba(247, 247, 150, 1));
+    border-color: transparent;
+    color: white;
+  }
+  
+  .page-item .page-link:hover {
+    background-color: rgba(111, 207, 151, 0.1);
+    border-color: #6fcf97;
+    color: #6fcf97;
+  }
+  
+  /* Member Count Info */
+  .member-count-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #6c757d;
   }
 </style>
 
@@ -262,7 +316,7 @@
 <div class="cover-container" data-aos="fade-up">
   @if($lkd->cover_path)
     <div class="cover-wrapper">
-      <img src="{{ getPhotoUrl($lkd->cover_path, 'https://via.placeholder.com/800x400?text=Cover+' . urlencode($lkd->judul)) }}" 
+      <img src="{{ $lkd->cover_path ? asset('storage/' . $lkd->cover_path) : 'https://via.placeholder.com/800x400?text=Cover+' . urlencode($lkd->judul) }}" 
            alt="{{ $lkd->judul }}"
            class="cover-image">
     </div>
@@ -307,14 +361,19 @@
       <i class="ti ti-users me-3"></i>Struktur / Anggota
     </h2>
     
-    @if($lkd->members()->count() > 0)
+    <!-- Member Count Info -->
+    <div class="member-count-info">
+      <p>Menampilkan {{ $members->count() }} dari {{ $members->total() }} anggota</p>
+    </div>
+    
+    @if($members->count() > 0)
       <div class="row g-4">
-        @foreach($lkd->members()->orderBy('order_no')->orderBy('nama')->get() as $m)
+        @foreach($members as $m)
           <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
             <div class="member-card">
               <!-- Member Photo -->
               @if($m->foto_path)
-                <img src="{{ getPhotoUrl($m->foto_path, 'https://via.placeholder.com/120x120?text=Foto') }}" 
+                <img src="{{ $m->foto_path ? asset('storage/' . $m->foto_path) : 'https://via.placeholder.com/120x120?text=Foto' }}" 
                      class="member-photo" 
                      alt="{{ $m->nama }}">
               @else
@@ -359,6 +418,13 @@
           </div>
         @endforeach
       </div>
+      
+      <!-- Pagination -->
+      @if($members->hasPages())
+        <div class="pagination-container" data-aos="fade-up" data-aos-delay="500">
+          {{ $members->links() }}
+        </div>
+      @endif
     @else
       <div class="empty-state" data-aos="fade-up">
         <i class="ti ti-users"></i>

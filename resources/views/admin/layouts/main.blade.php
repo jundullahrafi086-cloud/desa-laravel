@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard Admin - Website Portal Desa Kertamukti</title>
+  <title>Dashboard Admin - Website Portal Desa Bojonggambir</title>
   <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
   <link rel="stylesheet" href="/admin/assets/css/styles.min.css" />
 

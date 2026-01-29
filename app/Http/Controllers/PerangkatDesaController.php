@@ -9,9 +9,9 @@ class PerangkatDesaController extends Controller
 {
     public function index()
     {
-        $perangkatDesa = PerangkatDesa::all();
-        return view('perangkat-desa.index', [
-            'perangkatDesa' => $perangkatDesa
-        ]);
+        $nm_desa = 'Nama Desa'; // Ganti dengan nama desa Anda atau ambil dari setting
+        $perangkatDesa = PerangkatDesa::orderBy('id')->paginate(8);
+        
+        return view('perangkat-desa.index', compact('perangkatDesa', 'nm_desa'));
     }
 }

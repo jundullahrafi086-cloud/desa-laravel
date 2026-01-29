@@ -3,7 +3,7 @@
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6fcf97 0%, #6fcf97 100%);
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -17,9 +17,9 @@
     position: absolute;
     top: -50%;
     right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle,  rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
   
@@ -32,7 +32,7 @@
   .main-container {
     background: white;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px  #6fcf97 ;
     margin: -3rem auto 3rem;
     position: relative;
     z-index: 1;
@@ -49,7 +49,7 @@
   .section-title h2 {
     font-size: 3rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #6fcf97 ;
     margin: 0;
     position: relative;
     display: inline-block;
@@ -63,7 +63,7 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg,  rgba(247, 247, 150, 1), #6fcf97 );
     border-radius: 2px;
   }
   
@@ -101,7 +101,7 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, rgba(247, 247, 150, 1), #6fcf97);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -112,7 +112,7 @@
   
   .berita-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px   #6fcf97;
   }
   
   /* Image Container */
@@ -152,13 +152,13 @@
     width: 50px;
     height: 50px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, rgba(247, 247, 150, 1), #6fcf97);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.3rem;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 10px 25px #6fcf97;
     transition: all 0.3s ease;
   }
   
@@ -176,7 +176,7 @@
   }
   
   .berita-card:hover .card-title {
-    color: #667eea;
+    color: #6fcf97;
   }
   
   .card-meta {
@@ -189,7 +189,7 @@
   }
   
   .card-meta i {
-    color: #667eea;
+    color: #6fcf97;
   }
   
   .card-text {
@@ -211,7 +211,7 @@
   }
   
   .read-more {
-    color: #667eea;
+    color: #6fcf97;
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;
@@ -221,7 +221,7 @@
   }
   
   .read-more:hover {
-    color: #764ba2;
+    color: #6fcf97;
     gap: 0.8rem;
   }
   
@@ -231,7 +231,7 @@
     padding: 4rem 2rem;
     background: #f8f9fa;
     border-radius: 20px;
-    color: #6c757d;
+    color: ;
     margin: 0 3rem 3rem;
   }
   
@@ -242,7 +242,7 @@
   }
   
   .empty-state h4 {
-    color: #495057;
+    color: #6fcf97;
     margin-bottom: 1rem;
   }
   
@@ -263,7 +263,7 @@
   }
   
   .page-item .page-link {
-    color: #667eea;
+    color: #6fcf97;
     border: 1px solid #e9ecef;
     border-radius: 10px;
     padding: 0.75rem 1rem;
@@ -272,15 +272,15 @@
   }
   
   .page-item.active .page-link {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg,  rgba(247, 247, 150, 1), #6fcf97);
     border-color: transparent;
     color: white;
   }
   
   .page-item .page-link:hover {
     background-color: rgba(102, 126, 234, 0.1);
-    border-color: #667eea;
-    color: #667eea;
+    border-color: #6fcf97;
+    color: #6fcf97;
   }
   
   /* Responsive */
@@ -323,9 +323,6 @@
           Informasi terkini dan perkembangan desa. Tetap update dengan berbagai berita, 
           kegiatan, dan prestasi yang dicapai oleh desa kami.
         </p>
-      </div>
-      <div class="col-lg-4" data-aos="fade-left">
-        <img src="{{ asset('images/news-hero.svg') }}" alt="Berita Hero" class="img-fluid">
       </div>
     </div>
   </div>

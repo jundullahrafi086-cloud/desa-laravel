@@ -3,7 +3,7 @@
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6fcf97 0%, #6fcf97 100%); 
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -17,9 +17,9 @@
     position: absolute;
     top: -50%;
     right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
   
@@ -32,7 +32,7 @@
   .main-container {
     background: white;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px  #6fcf97;
     margin: -3rem auto 3rem;
     position: relative;
     z-index: 1;
@@ -48,7 +48,7 @@
   .section-title h2 {
     font-size: 3rem;
     font-weight: 700;
-    color: #2c3e50;
+    color:  #6fcf97;
     margin: 0;
     position: relative;
     display: inline-block;
@@ -62,13 +62,13 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg,  #6fcf97,  rgba(247, 247, 150, 1) );
     border-radius: 2px;
   }
   
   .section-subtitle {
     font-size: 1.2rem;
-    color: #6c757d;
+    color: #000000ff;
     margin-top: 1rem;
   }
   
@@ -77,7 +77,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
-    padding: 3rem;
+    padding: 0 3rem 3rem;
   }
   
   /* Card Styles */
@@ -100,7 +100,7 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -111,7 +111,7 @@
   
   .perangkat-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px  #6fcf97;
   }
   
   /* Image Container */
@@ -151,13 +151,13 @@
     width: 50px;
     height: 50px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #6fcf97,  rgba(247, 247, 150, 1));
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.3rem;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 10px 25px #6fcf97;
     transition: all 0.3s ease;
   }
   
@@ -174,7 +174,7 @@
   }
   
   .perangkat-card:hover .card-title {
-    color: #667eea;
+    color:  #6fcf97;
   }
   
   .card-position {
@@ -187,7 +187,7 @@
   .card-footer {
     margin-top: auto;
     padding-top: 1rem;
-    border-top: 1px solid #e9ecef;
+    border-top: 1px solid  #6fcf97;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -197,23 +197,23 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #6c757d;
+    color:  #000000ff;
     font-size: 0.9rem;
   }
   
   .card-meta i {
-    color: #667eea;
+    color:  #6fcf97;
   }
   
   /* Badge */
   .card-badge {
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    background: linear-gradient(45deg,  #6fcf97,  rgba(247, 247, 150, 1));
     color: white;
     padding: 0.4rem 1rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 5px 15px  #6fcf97;
   }
   
   /* Empty State */
@@ -223,16 +223,17 @@
     background: #f8f9fa;
     border-radius: 20px;
     color: #6c757d;
+    margin: 0 3rem 3rem;
   }
   
   .empty-state i {
     font-size: 4rem;
-    color: #dee2e6;
+    color:  #6fcf97;
     margin-bottom: 1rem;
   }
   
   .empty-state h4 {
-    color: #495057;
+    color:  #6fcf97;
     margin-bottom: 1rem;
   }
   
@@ -240,12 +241,53 @@
     margin-bottom: 1.5rem;
   }
   
+  /* Pagination Styles */
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 3rem 3rem;
+  }
+  
+  .pagination {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .page-item .page-link {
+    color: #6fcf97;
+    border: 1px solid #6fcf97;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .page-item.active .page-link {
+    background: linear-gradient(135deg, #6fcf97, rgba(247, 247, 150, 1));
+    border-color: transparent;
+    color: white;
+  }
+  
+  .page-item .page-link:hover {
+    background-color: rgba(111, 207, 151, 0.1);
+    border-color: #6fcf97;
+    color: #6fcf97;
+  }
+  
+  /* Perangkat Count Info */
+  .perangkat-count-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #6c757d;
+    padding: 0 3rem;
+  }
+  
   /* Responsive */
   @media (max-width: 768px) {
     .perangkat-container {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.5rem;
-      padding: 2rem;
+      padding: 0 2rem 2rem;
     }
     
     .section-title h2 {
@@ -261,11 +303,23 @@
     .card-title {
       font-size: 1.3rem;
     }
+    
+    .pagination-container {
+      margin: 0 2rem 2rem;
+    }
+    
+    .perangkat-count-info {
+      padding: 0 2rem;
+    }
   }
   
   @media (max-width: 576px) {
     .perangkat-container {
       grid-template-columns: 1fr;
+    }
+    
+    .empty-state {
+      margin: 0 2rem 2rem;
     }
   }
 </style>
@@ -283,9 +337,6 @@
           Mereka adalah garda terdepan dalam mewujudkan pembangunan dan pelayanan prima di desa.
         </p>
       </div>
-      <div class="col-lg-4" data-aos="fade-left">
-        <img src="{{ asset('images/team-hero.svg') }}" alt="Perangkat Desa Hero" class="img-fluid">
-      </div>
     </div>
   </div>
 </div>
@@ -298,6 +349,11 @@
   </div>
   
   @if($perangkatDesa->count() > 0)
+    <!-- Perangkat Count Info -->
+    <div class="perangkat-count-info" data-aos="fade-up" data-aos-delay="100">
+      <p>Menampilkan {{ $perangkatDesa->count() }} dari {{ $perangkatDesa->total() }} perangkat desa</p>
+    </div>
+    
     <div class="perangkat-container">
       @foreach ($perangkatDesa as $perangkat)
         <div class="perangkat-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
@@ -319,24 +375,31 @@
             </div>
             
             <div class="card-footer">
-  <div class="card-meta">
-    <i class="ti ti-calendar me-1"></i>
-    <span>{{ $perangkat->created_at?->format('d F Y') ?? 'Tanggal tidak tersedia' }}</span>
-  </div>
-  <div class="card-badge">
-    PERANGKAT
-  </div>
-</div>
+              <div class="card-meta">
+                <i class="ti ti-star"></i>
+                <span>Perangkat Desa</span>
+              </div>
+              <div class="card-badge">
+                Aktif
+              </div>
+            </div>
           </div>
         </div>
       @endforeach
     </div>
+    
+    <!-- Pagination -->
+    @if($perangkatDesa->hasPages())
+      <div class="pagination-container" data-aos="fade-up" data-aos-delay="500">
+        {{ $perangkatDesa->links() }}
+      </div>
+    @endif
   @else
     <div class="empty-state" data-aos="fade-up">
       <i class="ti ti-users-off"></i>
       <h4>Belum ada data Perangkat Desa</h4>
       <p>Data perangkat desa belum tersedia. Silakan tambahkan data perangkat desa untuk menampilkan informasi tim pelayanan desa.</p>
-      <a href="{{ route('perangkat.create') }}" class="btn btn-primary">
+      <a href="{{ route('perangkat-desa.create') }}" class="btn btn-primary">
         <i class="ti ti-plus me-2"></i>Tambah Perangkat Desa
       </a>
     </div>

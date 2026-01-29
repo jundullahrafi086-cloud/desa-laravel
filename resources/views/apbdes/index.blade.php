@@ -3,7 +3,7 @@
 <style>
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6fcf97 0%, #6fcf97 100%);
     color: white;
     padding: 4rem 0;
     margin-bottom: 3rem;
@@ -17,9 +17,9 @@
     position: absolute;
     top: -50%;
     right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(247, 247, 150, 1) 0%, transparent 70%);
     animation: float 20s infinite linear;
   }
   
@@ -49,7 +49,7 @@
   .section-title h2 {
     font-size: 3rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #6fcf97;
     margin: 0;
     position: relative;
     display: inline-block;
@@ -63,7 +63,7 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97,  #f7f796);
     border-radius: 2px;
   }
   
@@ -101,7 +101,7 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #6fcf97,  #f7f796);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
@@ -112,7 +112,7 @@
   
   .apbdes-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px #6fcf97;
   }
   
   /* Image Container */
@@ -152,13 +152,13 @@
     width: 50px;
     height: 50px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, );
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.3rem;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 10px 25px #6fcf97;
     transition: all 0.3s ease;
   }
   
@@ -176,13 +176,13 @@
   }
   
   .apbdes-card:hover .card-title {
-    color: #667eea;
+    color: #6fcf97;
   }
   
   .card-text {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #495057;
+    color: #6fcf97;
     flex: 1;
     margin-bottom: 1rem;
   }
@@ -208,7 +208,7 @@
   }
   
   .card-meta i {
-    color: #667eea;
+    color: #6fcf97;
   }
   
   /* Action Buttons */
@@ -219,19 +219,19 @@
   }
   
   .btn-primary {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #6fcf97,  #f7f796);
     border: none;
     border-radius: 50px;
     padding: 0.6rem 1rem;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 5px 15px #6fcf97;
   }
   
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 20px #6fcf97;
   }
   
   .btn-group {
@@ -251,9 +251,9 @@
   }
   
   .btn-outline:hover {
-    background-color: rgba(102, 126, 234, 0.1);
-    border-color: #667eea;
-    color: #667eea;
+    background-color: #6fcf97,  #f7f796;
+    border-color: #6fcf97;
+    color: #6fcf97;
     transform: translateY(-2px);
   }
   
@@ -263,32 +263,32 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.8rem;
-    color: #6c757d;
+    color: #6fcf97
     margin-top: 0.75rem;
   }
   
   .file-info i {
-    color: #667eea;
+    color: #6fcf97;
   }
   
   /* Empty State */
   .empty-state {
     text-align: center;
     padding: 4rem 2rem;
-    background: #f8f9fa;
+    background: #6fcf97;
     border-radius: 20px;
-    color: #6c757d;
+    color: #6fcf97;
     margin: 0 3rem 3rem;
   }
   
   .empty-state i {
     font-size: 4rem;
-    color: #dee2e6;
+    color: #6fcf97;
     margin-bottom: 1rem;
   }
   
   .empty-state h4 {
-    color: #495057;
+    color: #6fcf97;
     margin-bottom: 1rem;
   }
   
@@ -309,7 +309,7 @@
   }
   
   .page-item .page-link {
-    color: #667eea;
+    color: #6fcf97;
     border: 1px solid #e9ecef;
     border-radius: 10px;
     padding: 0.75rem 1rem;
@@ -318,15 +318,15 @@
   }
   
   .page-item.active .page-link {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #6fcf97,  #f7f796);
     border-color: transparent;
     color: white;
   }
   
   .page-item .page-link:hover {
-    background-color: rgba(102, 126, 234, 0.1);
-    border-color: #667eea;
-    color: #667eea;
+    background-color: #6fcf97;
+    border-color: #6fcf97;
+    color: #6fcf97;
   }
   
   /* Responsive */
@@ -397,15 +397,12 @@
     <div class="row align-items-center">
       <div class="col-lg-8">
         <h1 class="display-4 fw-bold mb-4" data-aos="fade-right">
-          <i class="ti ti-chart-pie me-3"></i>APBDesa
+          <i class="ti ti-chart-pie me-3"></i>IPPD
         </h1>
         <p class="lead mb-0" data-aos="fade-right" data-aos-delay="100">
           Laporan Anggaran Pendapatan dan Belanja Desa. Akses informasi transparan 
           tentang perencanaan dan pengelolaan keuangan desa.
         </p>
-      </div>
-      <div class="col-lg-4" data-aos="fade-left">
-        <img src="{{ asset('images/apbdes-hero.svg') }}" alt="APBDes Hero" class="img-fluid">
       </div>
     </div>
   </div>
@@ -414,7 +411,7 @@
 <!-- Main Content -->
 <div class="main-container" data-aos="fade-up">
   <div class="section-title">
-    <h2><i class="ti ti-file-report me-3"></i>Dokumen APBDesa</h2>
+    <h2><i class="ti ti-file-report me-3"></i>Dokumen IPPD</h2>
     <p class="section-subtitle">Laporan Keuangan Desa</p>
   </div>
   
@@ -474,8 +471,8 @@
     @empty
       <div class="empty-state" data-aos="fade-up">
         <i class="ti ti-file-off"></i>
-        <h4>Belum ada Data APBDesa</h4>
-        <p>Belum ada dokumen APBDesa yang dipublikasikan. Silakan periksa kembali beberapa saat lagi.</p>
+        <h4>Belum ada Data IPPD</h4>
+        <p>Belum ada dokumen IPPD yang dipublikasikan. Silakan periksa kembali beberapa saat lagi.</p>
         <a href="{{ route('home') }}" class="btn btn-primary">
           <i class="ti ti-home me-2"></i>Kembali ke Beranda
         </a>
