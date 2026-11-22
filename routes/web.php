@@ -29,7 +29,7 @@ use App\Http\Controllers\GalleryController;       // publik
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\AnggaranController;      // publik APBDes
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ProkerKknUserController;
+// use App\Http\Controllers\ProkerKknUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ use App\Http\Controllers\AdminIdentitasSitusController;
 use App\Http\Controllers\AdminKepalaDesaController;
 use App\Http\Controllers\AdminGalleryGroupController;
 use App\Http\Controllers\AdminGalleryController;
-use App\Http\Controllers\AdminProkerKknController;
+// use App\Http\Controllers\AdminProkerKknController;
 /*
 |--------------------------------------------------------------------------
 | WEB ROUTES
@@ -87,9 +87,9 @@ Route::get('/perpus/{slug}', [PerpusController::class, 'show'])->name('perpus.sh
 // LKD (Publik)
 Route::get('/lkd', [LkdPublicController::class, 'index'])->name('lkd.index');
 Route::get('/lkd/{lkd:slug}', [LkdPublicController::class, 'show'])->name('lkd.show');
-Route::get('/proker-kkn', [ProkerKknUserController::class, 'index'])->name('proker-kkn.index');
-Route::get('/proker-kkn/{slug}', [ProkerKknUserController::class, 'show'])->name('proker-kkn.show');
-Route::get('/proker-kkn/kategori/{kategori}', [ProkerKknUserController::class, 'byCategory'])->name('proker-kkn.category');
+// Route::get('/proker-kkn', [ProkerKknUserController::class, 'index'])->name('proker-kkn.index');
+// Route::get('/proker-kkn/{slug}', [ProkerKknUserController::class, 'show'])->name('proker-kkn.show');
+// Route::get('/proker-kkn/kategori/{kategori}', [ProkerKknUserController::class, 'byCategory'])->name('proker-kkn.category');
 
 
 Route::get('/kategori/{kategori:slug}', [kategoriController::class, 'index']);
@@ -130,6 +130,7 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
  * ADMIN AREA (auth)
  * ===================== */
 Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/', fn() => redirect()->route('dashboard'));
 
     /* Slider */
     Route::resource('slider', AdminSliderController::class);
@@ -250,8 +251,8 @@ Route::delete('lkd/{lkd}/members/{member}', [LkdMemberController::class, 'destro
     Route::get('pengumuman/slug', [AdminAnnouncementController::class, 'slug'])
     ->name('admin.pengumuman.slug');
 
-    Route::resource('proker-kkn', AdminProkerKknController::class)->names('admin.proker-kkn');
-    Route::get('proker-kkn/slug', [AdminProkerKknController::class, 'slug'])->name('admin.proker-kkn.slug');
+    // Route::resource('proker-kkn', AdminProkerKknController::class)->names('admin.proker-kkn');
+// Route::get('proker-kkn/slug', [AdminProkerKknController::class, 'slug'])->name('admin.proker-kkn.slug');
 
 // resource CRUD
      Route::resource('pengumuman', AdminAnnouncementController::class)
