@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard Admin - Website Portal Desa Bojonggambir</title>
-  <link rel="shortcut icon" type="image/png" href="/assets/img/logo.png" />
+  <title>Dashboard Admin - Portal Resmi {{ $nm_desa ?? 'Desa Kertamukti' }}</title>
+  <link rel="shortcut icon" type="image/png" href="{{ isset($logo) && $logo->logo ? asset('storage/' . $logo->logo) : '/assets/img/logo.png' }}" />
   <link rel="stylesheet" href="/admin/assets/css/styles.min.css" />
 
   <!-- Jquery -->
@@ -23,6 +23,7 @@
 
   <!-- Appex -->
   <script src="/admin/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  @stack('styles')
 </head>
 
 <body>
@@ -37,7 +38,6 @@
       </div>
     </div>
   </div>
-  <script src="/admin/assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script src="/admin/assets/js/sidebarmenu.js"></script>
@@ -66,6 +66,7 @@
 			})
 		});
 	</script>
+  @stack('scripts')
 </body>
 
 </html>

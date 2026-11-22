@@ -41,7 +41,7 @@
     }
     
     .table-hover tbody tr:hover {
-        background-color:  #6fcf97 0%, rgba(247, 247, 150, 1);
+        background-color: rgba(111, 207, 151, 0.12);
         transition: background-color 0.3s ease;
     }
     
@@ -150,7 +150,7 @@
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
-                                <thead class="text-white" style="background: linear-gradient(135deg, #6fcf97 0%, rgba(247, 247, 150, 1);">
+                                <thead class="text-white" style="background: linear-gradient(135deg, #6fcf97 0%, #11998e 100%);">
                                     <tr>
                                         <th scope="col" style="border: none; padding: 12px 15px; font-weight: 500;">Jenis Kelamin</th>
                                         <th scope="col" style="border: none; padding: 12px 15px; font-weight: 500;">Jumlah</th>
@@ -215,7 +215,7 @@
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table table-hover mb-0">
-                                <thead class="text-white" style="background: linear-gradient(135deg,  #6fcf97 0%, rgba(247, 247, 150, 1);">
+                                <thead class="text-white" style="background: linear-gradient(135deg, #6fcf97 0%, #11998e 100%);">
                                     <tr>
                                         <th scope="col" style="border: none; padding: 12px 15px; font-weight: 500;">Pekerjaan</th>
                                         <th scope="col" style="border: none; padding: 12px 15px; font-weight: 500;">Jumlah</th>
@@ -378,7 +378,7 @@
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'right',
+                    position: 'bottom',
                     labels: {
                         font: {
                             size: 13

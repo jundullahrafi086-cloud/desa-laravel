@@ -583,15 +583,18 @@
                   {{-- Balasan --}}
                   @foreach ($comment->replies as $reply)
                     @php
-                      $replyHash = md5(strtolower(trim($reply->email ?? '')));
+                      $replyEmail = $reply->replyEmail ?? $reply->email ?? '';
+                      $replyNama  = $reply->replyNama ?? $reply->nama ?? 'Pengunjung';
+                      $replyBody  = $reply->replyBody ?? $reply->body ?? '';
+                      $replyHash  = md5(strtolower(trim($replyEmail)));
                       $replyAvatar = "https://www.gravatar.com/avatar/{$replyHash}?s=60&d=identicon";
                     @endphp
                     <div class="comment" style="margin-top:.75rem" data-aos="fade-up" data-aos-delay="{{ 150 + $loop->index * 50 }}">
                       <img class="avatar" src="{{ $replyAvatar }}" alt="" width="52" height="52" loading="lazy" decoding="async" style="width:52px;height:52px;">
                       <div class="flex-grow-1">
-                        <p class="c-name mb-0">{{ $reply->nama ?? 'Pengunjung' }}</p>
+                        <p class="c-name mb-0">{{ $replyNama }}</p>
                         <div class="c-time">{{ optional($reply->created_at)->diffForHumans() ?? '' }}</div>
-                        <p class="c-body">{{ $reply->body }}</p>
+                        <p class="c-body">{{ $replyBody }}</p>
                       </div>
                     </div>
                   @endforeach
@@ -713,45 +716,10 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize AOS
   AOS.init({
     duration: 800,
     easing: 'ease-in-out',
     once: true
-  });
-  
-  // Fix header spacing issue
-  const updateBodyPadding = () => {
-    const header = document.getElementById('header');
-    if (header) {
-      const headerHeight = header.offsetHeight;
-      document.body.style.paddingTop = `${headerHeight}px`;
-      
-      // Adjust hero section margin top to match header height
-      const heroSection = document.querySelector('.hero');
-      if (heroSection) {
-        heroSection.style.marginTop = `-${headerHeight}px`;
-        heroSection.style.paddingTop = `${headerHeight + 30}px`; // Add extra padding for content
-      }
-    }
-  };
-  
-  // Call on load and resize
-  updateBodyPadding();
-  window.addEventListener('resize', updateBodyPadding);
-  
-  // Handle header scroll effect
-  window.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    if (header) {
-      if (window.scrollY > 50) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
-      }
-      // Update padding in case header height changes
-      updateBodyPadding();
-    }
   });
 });
 </script>

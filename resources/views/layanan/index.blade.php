@@ -76,7 +76,7 @@
   /* Layanan Container */
   .layanan-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
     gap: 2rem;
     padding: 0 3rem 3rem;
   }
@@ -371,8 +371,8 @@
                     <i class="ti ti-calendar me-1"></i>
                     <span>Diperbarui {{ $layanan->updated_at?->format('d F Y') ?? 'Tanggal tidak tersedia' }}</span>
                   </div>
-                  <a href="/layanan/{{ $layanan->slug }}" class="service-link">
-                    <span>Detail</span>
+                  <a href="/kontak" class="service-link">
+                    <span>Hubungi Desa</span>
                     <i class="ti ti-arrow-right"></i>
                   </a>
                 </div>
@@ -424,4 +424,4 @@ document.addEventListener('DOMContentLoaded', function() {
 @push('styles')
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
-@endpush>
+@endpush

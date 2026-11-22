@@ -117,6 +117,14 @@
   .sidebar-nav .dropdown ul a { padding: 12px 20px 12px 40px; font-size: 14px; border-left: none; }
   .sidebar-nav .dropdown ul a:hover { background: rgba(255,255,255,0.05); }
 
+  /* Responsive Styles - Laptop / Small Desktop */
+  @media (max-width: 1200px) and (min-width: 993px) {
+    .navbar li { margin: 0 3px; }
+    .navbar a { padding: 8px 10px; font-size: 13.5px; }
+    .logo img { height: 52px; }
+    .logo h1 { font-size: 1.15rem; }
+  }
+
   /* Responsive Styles - Tablet */
   @media (max-width: 992px) {
     #header { padding: 12px 0; }
@@ -125,8 +133,8 @@
     .mobile-nav-toggle { display: block; }
     .sidebar { display: block; }
 
-    .logo img { height: 50px; }
-    .logo h1 { font-size: 1.2rem; }
+    .logo img { height: 48px; }
+    .logo h1 { font-size: 1.15rem; }
   }
 
   /* Responsive Styles - Mobile Phone */
@@ -153,16 +161,20 @@
     .sidebar.active { left: 0; }
     .sidebar-logo img { height: 40px; }
     .sidebar-logo h1 { font-size: 1rem; }
-    .mobile-nav-toggle { font-size: 24px; }
+    .mobile-nav-toggle { font-size: 26px; }
   }
 
   /* Responsive Styles - Small Mobile */
   @media (max-width: 576px) {
     .sidebar { width: 260px; left: -260px; }
-    .sidebar-logo img { height: 40px; }
-    .sidebar-logo h1 { font-size: 1rem; }
+    .sidebar-logo img { height: 38px; }
+    .sidebar-logo h1 { font-size: 0.95rem; }
     .logo h1 {
-      display: none; /* Sembunyikan teks logo di layar sangat kecil */
+      font-size: 0.95rem;
+      max-width: 190px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -200,15 +212,17 @@
   <div class="container d-flex align-items-center justify-content-between">
     <div class="logo me-auto d-flex align-items-center">
       <a href="/" class="d-flex align-items-center text-decoration-none">
-        <img src="{{ asset('storage/' . $logo->logo) }}" alt="Logo Desa" class="me-2">
-        <h1 class="mb-0 fs-4 fw-bold text-dark">{{ $nm_desa }}</h1>
+        @if(isset($logo) && $logo->logo)
+          <img src="{{ asset('storage/' . $logo->logo) }}" alt="Logo Desa" class="me-2">
+        @endif
+        <h1 class="mb-0 fs-4 fw-bold text-white">{{ $nm_desa ?? 'Desa Kertamukti' }}</h1>
       </a>
     </div>
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="/">Beranda</a></li>
+        <li><a class="nav-link scrollto {{ request()->is('/') ? 'active' : '' }}" href="/">Beranda</a></li>
         <li class="dropdown">
-          <a href="#"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
+          <a href="#" class="{{ request()->is('wilayah*','sejarah*','visi-misi*','perangkat-desa*','peta-desa*','data-desa*') ? 'active' : '' }}"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="/wilayah">Wilayah</a></li>
             <li><a href="/sejarah">Sejarah</a></li>
@@ -219,20 +233,24 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
+          <a href="#" class="{{ request()->is('pengumuman*','berita*','gallery*','lkd*','apbdesa*') ? 'active' : '' }}"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="/pengumuman">Pengumuman</a></li>
             <li><a href="/berita">Berita</a></li>
             <li><a href="/gallery">Gallery</a></li>
             <li><a href="/lkd">LKD</a></li>
-            <li><a href="/apbdesa">IPPD</a></li>
+            <li><a href="/apbdesa">IPPD / APBDes</a></li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="/umkm">Umkm</a></li>
-        <li><a class="nav-link scrollto" href="/layanan">Layanan</a></li>
-        <li><a class="nav-link scrollto" href="/blt">Cek BLT</a></li>
-        <li><a class="nav-link scrollto" href="/kontak">Kontak kami</a></li>
-        <li><a href="/login" class="nav-link scrollto">Masuk</a></li>
+        <li><a class="nav-link scrollto {{ request()->is('umkm*') ? 'active' : '' }}" href="/umkm">UMKM</a></li>
+        <li><a class="nav-link scrollto {{ request()->is('layanan*') ? 'active' : '' }}" href="/layanan">Layanan</a></li>
+        <li><a class="nav-link scrollto {{ request()->is('blt*') ? 'active' : '' }}" href="/blt">Cek BLT</a></li>
+        <li><a class="nav-link scrollto {{ request()->is('kontak*') ? 'active' : '' }}" href="/kontak">Kontak Kami</a></li>
+        @auth
+          <li><a href="/dashboard" class="nav-link scrollto">Dashboard</a></li>
+        @else
+          <li><a href="/login" class="nav-link scrollto">Masuk</a></li>
+        @endauth
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
@@ -243,15 +261,17 @@
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="sidebar-logo">
-      <img src="{{ asset('storage/' . $logo->logo) }}" alt="Logo Desa">
-      <h1>{{ $nm_desa }}</h1>
+      @if(isset($logo) && $logo->logo)
+        <img src="{{ asset('storage/' . $logo->logo) }}" alt="Logo Desa">
+      @endif
+      <h1>{{ $nm_desa ?? 'Desa Kertamukti' }}</h1>
     </div>
     <i class="bi bi-x-lg sidebar-close" role="button" aria-label="Tutup menu"></i>
   </div>
   <ul class="sidebar-nav">
-    <li><a href="/" class="active">Beranda</a></li>
+    <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Beranda</a></li>
     <li class="dropdown">
-      <a href="#"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
+      <a href="#" class="{{ request()->is('wilayah*','sejarah*','visi-misi*','perangkat-desa*','peta-desa*','data-desa*') ? 'active' : '' }}"><span>Profil Desa</span> <i class="bi bi-chevron-down"></i></a>
       <ul>
         <li><a href="/wilayah">Wilayah</a></li>
         <li><a href="/sejarah">Sejarah</a></li>
@@ -262,20 +282,24 @@
       </ul>
     </li>
     <li class="dropdown">
-      <a href="#"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
+      <a href="#" class="{{ request()->is('pengumuman*','berita*','gallery*','lkd*','apbdesa*') ? 'active' : '' }}"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
       <ul>
         <li><a href="/pengumuman">Pengumuman</a></li>
         <li><a href="/berita">Berita</a></li>
         <li><a href="/gallery">Gallery</a></li>
         <li><a href="/lkd">LKD</a></li>
-        <li><a href="/apbdesa">IPPD</a></li>
+        <li><a href="/apbdesa">IPPD / APBDes</a></li>
       </ul>
     </li>
-    <li><a href="/umkm">Umkm</a></li>
-    <li><a href="/layanan">Layanan</a></li>
-    <li><a href="/perpus">Perpus Online</a></li>
-    <li><a href="/kontak">Kontak kami</a></li>
-    <li><a href="/login">Masuk</a></li>
+    <li><a href="/umkm" class="{{ request()->is('umkm*') ? 'active' : '' }}">UMKM</a></li>
+    <li><a href="/layanan" class="{{ request()->is('layanan*') ? 'active' : '' }}">Layanan</a></li>
+    <li><a href="/blt" class="{{ request()->is('blt*') ? 'active' : '' }}">Cek BLT</a></li>
+    <li><a href="/kontak" class="{{ request()->is('kontak*') ? 'active' : '' }}">Kontak Kami</a></li>
+    @auth
+      <li><a href="/dashboard">Dashboard Admin</a></li>
+    @else
+      <li><a href="/login">Masuk</a></li>
+    @endauth
   </ul>
 </div>
 <!-- Main Content -->

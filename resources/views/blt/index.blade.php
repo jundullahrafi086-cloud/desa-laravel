@@ -44,11 +44,21 @@
   border-radius: 20px;
   padding: 2.5rem;
   box-shadow: 0 20px 40px rgba(111,207,151,.35);
-  margin-top: 120px;
+  margin-top: -60px;
   position: relative;
   z-index: 5;
   border-top: 5px solid #6fcf97;
   animation: fadeUp .8s ease forwards;
+}
+
+@media (max-width: 768px) {
+  .search-section {
+    padding: 1.5rem;
+    margin-top: -40px;
+  }
+  .result-card {
+    padding: 1.25rem;
+  }
 }
 
 /* ===============================

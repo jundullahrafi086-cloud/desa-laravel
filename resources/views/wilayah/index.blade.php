@@ -34,7 +34,7 @@
     background: white;
     border-radius: 20px;
     padding: 3rem;
-    box-shadow: 0 10px 30px #ffff;
+    box-shadow: 0 10px 30px rgba(17, 153, 142, 0.15);
     margin-bottom: 3rem;
     position: relative;
   }
@@ -127,6 +127,9 @@
   .content-body ul, .content-body ol {
     margin-bottom: 25px;
     padding-left: 25px;
+  }
+  .content-body ul {
+    list-style: none;
   }
   
   .content-body li {
@@ -301,6 +304,9 @@
     
     .content-body table {
       font-size: 0.9rem;
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
     }
     
     .content-body table th, .content-body table td {

@@ -9,8 +9,8 @@
               <div class="col-lg-6">
                 <h4 class="card-title my-5 fw-semibold text-white">Selamat Datang {{ auth()->user()->name }}, Di Website Portal {{ $nm_desa }}</h4>
               </div>
-              <div class="col-lg-6">
-                <img src="/admin/assets/images/dashboard/welcome.svg" alt="Selamat Datang" style="width: 300px;" class="float-end">
+              <div class="col-lg-6 text-center text-lg-end">
+                <img src="/admin/assets/images/dashboard/welcome.svg" alt="Selamat Datang" style="width: 300px; max-width: 100%;" class="img-fluid float-lg-end">
               </div>
             </div>
           </div>

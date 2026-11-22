@@ -46,31 +46,32 @@
       <h2>Kontak Kami</h2>
     </div>
 
-    <div class="row">
+    <div class="row g-4">
       <div class="col-lg-6 d-flex" data-aos="fade-up">
-        <div class="info-box">
+        <div class="info-box w-100">
           <i class="bx bx-map"></i>
           <h3>Lokasi Desa</h3>
-          <div class="card-body p-2">
-            <iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=402&amp;hl=en&amp;q={{ urlencode($kontak->lokasi) }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+          <p class="mb-3">{{ $kontak->lokasi }}</p>
+          <div class="card-body p-0">
+            <iframe width="100%" height="360" style="border-radius: 10px;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=520&amp;height=402&amp;hl=en&amp;q={{ urlencode($kontak->lokasi) }}&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-6" data-aos="fade-up">
-        <div class="info-box" style="height: 250px;">
-          <div class="mx-auto pt-4">
+      <div class="col-lg-6 d-flex flex-column gap-4" data-aos="fade-up">
+        <div class="info-box flex-fill d-flex flex-column justify-content-center py-4">
+          <div class="mx-auto text-center">
             <i class="bx bx-envelope"></i>
             <h3>Email Kami</h3>
             <p>{{ $kontak->email }}</p>
           </div>
         </div>
 
-        <div class="info-box" style="height: 250px;">
-          <div class="mx-auto pt-4">
+        <div class="info-box flex-fill d-flex flex-column justify-content-center py-4">
+          <div class="mx-auto text-center">
             <i class="bx bx-phone-call"></i>
-            <h3>Nomor HP Kami</h3>
-            <p>{{ $kontak->no_hp }}</p>
+            <h3>Nomor HP / WhatsApp Kami</h3>
+            <p>+62 {{ ltrim($kontak->no_hp, '0') }}</p>
           </div>
         </div>
       </div>

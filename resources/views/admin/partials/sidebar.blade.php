@@ -3,11 +3,13 @@
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between py-2 px-3">
     <a href="/" class="d-flex align-items-center text-decoration-none">
+        @if(isset($logo) && $logo->logo)
         <img src="{{ asset('storage/' . $logo->logo) }}"
              alt="Logo Desa"
              class="me-2"
-             style="width: 50px; height: 50px; object-fit: contain;">
-        <span class="fw-bold fs-5 text-dark">Desa Bojonggambir</span>
+             style="width: 45px; height: 45px; object-fit: contain;">
+        @endif
+        <span class="fw-bold fs-5 text-dark">{{ $nm_desa ?? 'Desa Kertamukti' }}</span>
     </a>
     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
         <i class="ti ti-x fs-4"></i>
@@ -36,7 +38,7 @@
                     <span class="hide-menu">Tampilan</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/admin/slider " aria-expanded="false">
+                    <a class="sidebar-link" href="/admin/slider" aria-expanded="false">
                         <span>
                             <i class="ti ti-photo-minus"></i>
                         </span>
@@ -44,7 +46,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/admin/video-profile " aria-expanded="false">
+                    <a class="sidebar-link" href="/admin/video-profile" aria-expanded="false">
                         <span>
                             <i class="ti ti-brand-youtube"></i>
                         </span>
@@ -186,7 +188,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/admin/blt " aria-expanded="false">
+                    <a class="sidebar-link" href="/admin/blt" aria-expanded="false">
                         <span>
                             <i class="ti ti-cash"></i>
                         </span>
@@ -195,7 +197,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/admin/lkd " aria-expanded="false">
+                    <a class="sidebar-link" href="/admin/lkd" aria-expanded="false">
                         <span>
                             <i class="ti ti-book"></i>
                         </span>
@@ -212,7 +214,7 @@
                     </a>
                     <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/admin/umkm " aria-expanded="false">
+                            <a class="sidebar-link" href="/admin/umkm" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-point"></i>
                                 </span>
@@ -221,7 +223,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/admin/layanan " aria-expanded="false">
+                            <a class="sidebar-link" href="/admin/layanan" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-point"></i>
                                 </span>
@@ -230,7 +232,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/admin/gallery " aria-expanded="false">
+                            <a class="sidebar-link" href="/admin/gallery" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-point"></i>
                                 </span>
@@ -239,7 +241,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/admin/pengumuman " aria-expanded="false">
+                            <a class="sidebar-link" href="/admin/pengumuman" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-point"></i>
                                 </span>
@@ -248,7 +250,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/admin/apbdes " aria-expanded="false">
+                            <a class="sidebar-link" href="/admin/apbdes" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-point"></i>
                                 </span>
@@ -260,7 +262,7 @@
 
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="/admin/kontak " aria-expanded="false">
+                    <a class="sidebar-link" href="/admin/kontak" aria-expanded="false">
                         <span>
                             <i class="ti ti-mail-forward"></i>
                         </span>
@@ -274,7 +276,7 @@
                         <span class="hide-menu">Pengaturan</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="/admin/identitas-situs " aria-expanded="false">
+                        <a class="sidebar-link" href="/admin/identitas-situs" aria-expanded="false">
                             <span>
                                 <i class="ti ti-brand-laravel"></i>
                             </span>
@@ -282,7 +284,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="/admin/profil " aria-expanded="false">
+                        <a class="sidebar-link" href="/admin/profil" aria-expanded="false">
                             <span>
                                 <i class="ti ti-user"></i>
                             </span>

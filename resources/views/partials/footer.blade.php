@@ -424,10 +424,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <footer id="footer">
-
   <div class="container">
     <div class="copyright">
-      &copy; Copyright <strong><span>2025</span></strong>. || Repost By :  <a href="/">PKL Universitas Cipasung 2025</a>
+      &copy; Copyright <strong><span>{{ date('Y') }}</span></strong> Pemerintah <strong><span>{{ $nm_desa ?? 'Desa Kertamukti' }}</span></strong>, {{ $kecamatan ?? 'Kecamatan Ciawi' }}, {{ $kabupaten ?? 'Kabupaten Tasikmalaya' }}. All Rights Reserved.
     </div>
   </div>
 </footer>

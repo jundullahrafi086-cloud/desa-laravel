@@ -86,7 +86,8 @@
 
   .timeline-header {
     display: flex;
-    align-items-center center;
+    align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 2.5rem;
   }
 
@@ -304,7 +305,16 @@
 
     .content-section,
     .timeline-section {
-      padding: 2rem;
+      padding: 1.5rem;
+    }
+    .timeline {
+      padding-left: 1rem;
+    }
+    .timeline-item {
+      margin-left: 1rem;
+    }
+    .timeline-item::before {
+      left: -1.65rem;
     }
   }
 </style>
@@ -392,9 +402,9 @@
 
                 <!-- Status Badge -->
                 <div class="mt-2">
-                  @if($k->is_active)
+                  @if($k->is_active || !$k->periode_selesai || strtolower($k->periode_selesai) === 'sekarang')
                     <span class="badge bg-success">
-                      <i class="ti ti-circle-check me-1"></i>Aktif
+                      <i class="ti ti-circle-check me-1"></i>Aktif Menjabat
                     </span>
                   @else
                     <span class="badge bg-secondary">
@@ -441,24 +451,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     card.addEventListener('mouseleave', function() {
       this.style.transform = 'translateY(0)';
-    });
-  });
-
-  // Add hover effects to timeline items
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach(item => {
-    item.addEventListener('mouseenter', function() {
-      const before = this.querySelector('::before');
-      if (before) {
-        before.style.transform = 'scale(1.2)';
-      }
-    });
-
-    item.addEventListener('mouseleave', function() {
-      const before = this.querySelector('::before');
-      if (before) {
-        before.style.transform = 'scale(1)';
-      }
     });
   });
 });

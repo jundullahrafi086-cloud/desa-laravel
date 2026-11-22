@@ -418,7 +418,7 @@
       
       <div class="related-products">
         @foreach($related as $item)
-          <div class="related-product" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+          <a href="/umkm/{{ $item->slug }}" class="related-product text-decoration-none" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
             <img src="{{ $item->foto ? asset('storage/' . $item->foto) : 'https://ui-avatars.com/api/?name=' . urlencode($item->produk) . '&background=random' }}" 
                  alt="{{ $item->produk }}"
                  onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($item->produk) }}&background=random'">
@@ -426,7 +426,7 @@
               <h5 class="related-product-title">{{ $item->produk }}</h5>
               <div class="related-product-price">Rp {{ number_format($item->harga, 0, ',', '.') }}</div>
             </div>
-          </div>
+          </a>
         @endforeach
       </div>
     </div>

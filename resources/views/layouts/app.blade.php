@@ -5,9 +5,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Authentication - Website Desa Bojonggambir</title>
-  <link rel="shortcut icon" type="image/" href="/assets/img/logo.png" />
-  <link rel="stylesheet" href="admin/assets/css/styles.min.css" />
+  <title>Authentication - Portal Resmi {{ $nm_desa ?? 'Desa Kertamukti' }}</title>
+  <link rel="shortcut icon" type="image/png" href="{{ isset($logo) && $logo->logo ? asset('storage/' . $logo->logo) : '/assets/img/logo.png' }}" />
+  <link rel="stylesheet" href="/admin/assets/css/styles.min.css" />
 </head>
 
 <body>
@@ -16,7 +16,7 @@
     <div
       class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
       <div class="d-flex align-items-center justify-content-center w-100">
-        <div class="row justify-content-center w-100">
+        <div class="row justify-content-center w-100 m-0">
 
               @yield('auth')
 
@@ -25,8 +25,8 @@
       </div>
     </div>
   </div>
-  <script src="admin/assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/admin/assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   @stack('scripts')
 </body>
 

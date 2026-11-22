@@ -427,8 +427,8 @@
           Akses informasi transparan tentang perencanaan dan pengelolaan keuangan desa.
         </p>
       </div>
-      <div class="col-lg-4" data-aos="fade-left">
-        <img src="{{ asset('images/apbdes-hero.svg') }}" alt="APBDes Hero" class="img-fluid">
+      <div class="col-lg-4 d-none d-lg-block" data-aos="fade-left">
+        <img src="{{ asset('images/apbdes-hero.svg') }}" alt="APBDes Hero" class="img-fluid" onerror="this.style.display='none'">
       </div>
     </div>
   </div>

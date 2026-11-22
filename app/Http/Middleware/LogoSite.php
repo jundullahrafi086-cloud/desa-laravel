@@ -19,18 +19,24 @@ class LogoSite
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $situs      = Situs::find(1);
-        $nm_desa    = $situs->nm_desa;
-        $kecamatan  = $situs->kecamatan;
-        $kabupaten  = $situs->kabupaten;
-        $provinsi   = $situs->provinsi;
-        $kode_pos   = $situs->kode_pos;
+        $situs      = Situs::first() ?? new Situs([
+            'nm_desa'   => 'Desa Kertamukti',
+            'kecamatan' => 'Kecamatan Ciawi',
+            'kabupaten' => 'Kabupaten Tasikmalaya',
+            'provinsi'  => 'Jawa Barat',
+            'kode_pos'  => '46156',
+        ]);
+        $nm_desa    = $situs->nm_desa ?? 'Desa Kertamukti';
+        $kecamatan  = $situs->kecamatan ?? 'Kecamatan Ciawi';
+        $kabupaten  = $situs->kabupaten ?? 'Kabupaten Tasikmalaya';
+        $provinsi   = $situs->provinsi ?? 'Jawa Barat';
+        $kode_pos   = $situs->kode_pos ?? '46156';
 
-        $kontak     = Kontak::find(1);
-        $no_hp      = $kontak->no_hp;
-        $email      = $kontak->email;
+        $kontak     = Kontak::first();
+        $no_hp      = $kontak?->no_hp ?? '81223456789';
+        $email      = $kontak?->email ?? 'pemdes@kertamuktidesa.id';
         
-        $user       = User::find(1);
+        $user       = auth()->user() ?? User::first();
 
         View::share('logo', $situs);
         View::share('nm_desa', $nm_desa);

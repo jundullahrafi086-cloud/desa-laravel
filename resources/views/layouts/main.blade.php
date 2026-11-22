@@ -6,13 +6,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Website Desa Bojonggambir</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <title>@yield('title', 'Portal Resmi ' . ($nm_desa ?? 'Desa Kertamukti') . ' - ' . ($kabupaten ?? 'Kabupaten Tasikmalaya'))</title>
+  <meta content="Portal Resmi {{ $nm_desa ?? 'Desa Kertamukti' }}, {{ $kecamatan ?? 'Kecamatan Ciawi' }}, {{ $kabupaten ?? 'Kabupaten Tasikmalaya' }}" name="description">
+  <meta content="{{ $nm_desa ?? 'Desa Kertamukti' }}, {{ $kecamatan ?? 'Ciawi' }}, {{ $kabupaten ?? 'Tasikmalaya' }}, Portal Desa" name="keywords">
 
   <!-- Favicons -->
-  <link href="/assets/img/logo.png" rel="icon">
-  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ isset($logo) && $logo->logo ? asset('storage/' . $logo->logo) : '/assets/img/logo.png' }}" rel="icon">
+  <link href="{{ isset($logo) && $logo->logo ? asset('storage/' . $logo->logo) : '/assets/img/apple-touch-icon.png' }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
@@ -25,9 +25,34 @@
   <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
 
   <!-- Template Main CSS File -->
   <link href="/assets/css/style.css" rel="stylesheet">
+
+  <style>
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    #main {
+      min-height: 60vh;
+    }
+    @media (max-width: 768px) {
+      .main-container {
+        margin-left: 12px !important;
+        margin-right: 12px !important;
+      }
+      .display-4 {
+        font-size: 2rem !important;
+      }
+      .display-5 {
+        font-size: 1.75rem !important;
+      }
+    }
+  </style>
+
+  @stack('styles')
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -61,6 +86,8 @@
   <!-- Sweet Alert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   @include('sweetalert::alert')
+
+  @stack('scripts')
 
 </body>
 

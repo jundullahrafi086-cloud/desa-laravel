@@ -152,7 +152,7 @@
     width: 50px;
     height: 50px;
     border-radius: 15px;
-    background: linear-gradient(135deg, );
+    background: linear-gradient(135deg, #6fcf97, #f7f796);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,6 +160,7 @@
     font-size: 1.3rem;
     box-shadow: 0 10px 25px #6fcf97;
     transition: all 0.3s ease;
+    flex-shrink: 0;
   }
   
   .apbdes-card:hover .card-icon {
@@ -251,7 +252,7 @@
   }
   
   .btn-outline:hover {
-    background-color: #6fcf97,  #f7f796;
+    background-color: rgba(111, 207, 151, 0.12);
     border-color: #6fcf97;
     color: #6fcf97;
     transform: translateY(-2px);
@@ -263,7 +264,7 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.8rem;
-    color: #6fcf97
+    color: #6fcf97;
     margin-top: 0.75rem;
   }
   
@@ -275,10 +276,11 @@
   .empty-state {
     text-align: center;
     padding: 4rem 2rem;
-    background: #6fcf97;
+    background: #f8f9fa;
     border-radius: 20px;
-    color: #6fcf97;
+    color: #6c757d;
     margin: 0 3rem 3rem;
+    grid-column: 1 / -1;
   }
   
   .empty-state i {
@@ -433,7 +435,7 @@
           </div>
           
           <div class="card-text">
-            <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 100) }}</p>
+            <p>{{ $item->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($item->keterangan), 110) }}</p>
           </div>
           
           <div class="card-meta">
@@ -529,4 +531,4 @@ document.addEventListener('DOMContentLoaded', function() {
 @push('styles')
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
-@endpush>
+@endpush

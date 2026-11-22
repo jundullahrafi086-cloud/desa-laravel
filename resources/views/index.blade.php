@@ -3,10 +3,10 @@
 <style>
   /* ====== Palette ====== */
   :root {
-    --green: #6fcf97;                
-    --green-soft:  #6fcf97;           
+    --green: #11998e;                
+    --green-soft: #6fcf97;           
     --yellow-soft: rgba(247,247,150,1); 
-    --shadow: 0 15px 35px  #ffffff; /* dipertahankan sesuai kode kamu */
+    --shadow: 0 10px 30px rgba(17, 153, 142, 0.12);
   }
   /* ===== Hero Section ===== */
   #hero {
@@ -179,11 +179,33 @@
   }
   .umkm-card .btn-link:hover { color: var(--green-soft); transform: translateX(5px); }
   /* Responsive */
+  .video-responsive-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+  }
+  .video-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .news-card .card, .umkm-card .card {
+    border: none;
+    border-radius: 20px;
+  }
   @media (max-width: 768px) {
-    .carousel-item { height: 50vh; }
-    .carousel-content h2 { font-size: 2rem; }
-    .carousel-content p { font-size: 1rem; }
+    .carousel-item { height: 52vh; min-height: 320px; }
+    .carousel-content h2 { font-size: 1.75rem; }
+    .carousel-content p { font-size: 0.95rem; margin-bottom: 1.25rem; }
     .counts .section-title h2, #video .section-title h2 { font-size: 2rem; }
+    .services, .counts, #video { padding: 2.5rem 0; }
   }
 </style>
 <section id="hero">
@@ -251,18 +273,22 @@
   </div>
 </section>
 <!-- ======= Video Section ======= -->
-<section id="video" class="services mx-4">
+@if($videoProfil && $videoProfil->url_video)
+<section id="video" class="services">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <h2>Video Profil</h2>
     </div>
     <div class="row">
       <div class="col-lg-10 mx-auto">
-        <iframe width="100%" height="500" src="{{ $videoProfil->url_video }}" frameborder="0" allowfullscreen></iframe>
+        <div class="video-responsive-wrapper">
+          <iframe src="{{ $videoProfil->url_video }}" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
     </div>
   </div>
 </section>
+@endif
 <!-- ======= News Section ======= -->
 <section class="counts section-bg">
   <div class="container">

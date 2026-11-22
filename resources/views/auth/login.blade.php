@@ -82,16 +82,16 @@
 </style>
 
 
-<div class="auth-bg">
-    <div class="col-md-8 col-lg-6 col-xxl-4 mx-auto">
+<div class="auth-bg w-100">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xxl-4 mx-auto">
         <div class="card shadow-lg border-0 rounded-lg overflow-hidden">
 
             {{-- BAGIAN HEADER KARTU --}}
             <div class="card-header border-0 text-center py-4 bg-light">
                 <a href="/" class="d-inline-block">
-                    <img src="{{ asset('assets/img/logo.png') }}" width="150" alt="Logo Desa">
+                    <img src="{{ isset($logo) && $logo->logo ? asset('storage/' . $logo->logo) : asset('assets/img/logo.png') }}" style="max-height: 110px; width: auto; object-fit: contain;" alt="Logo Desa">
                 </a>
-                <h3 class="fw-bold mt-3 mb-0">{{ $nm_desa ?? config('app.name') }}</h3>
+                <h3 class="fw-bold mt-3 mb-0">{{ $nm_desa ?? 'Desa Kertamukti' }}</h3>
                 <p class="text-muted mb-0">Silakan login untuk melanjutkan</p>
             </div>
 

@@ -222,12 +222,13 @@
 
 /* --- GRID SAFETY (supaya kolom tak saling tumpang tindih) --- */
 .visi-misi-container{
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); /* 500px bisa tabrakan di layar sempit */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
   align-items:start;
   gap:2.5rem;
 }
 @media (max-width: 768px){
-  .visi-misi-container{ grid-template-columns:1fr; }
+  .visi-misi-container{ grid-template-columns:1fr; padding: 1.25rem; gap: 1.5rem; }
+  .vision-mission-card { padding: 1.5rem; }
 }
 
   
