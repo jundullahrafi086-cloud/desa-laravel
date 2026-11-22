@@ -90,8 +90,8 @@ class AdminGalleryController extends Controller
         ]);
 
         if ($request->hasFile('gambar')) {
-            if ($gallery->gambar) {
-                unlink('.' . Storage::url($gallery->gambar));
+            if ($gallery->gambar && Storage::disk('public')->exists($gallery->gambar)) {
+                Storage::disk('public')->delete($gallery->gambar);
             }
             $path       = 'img-gallery/';
             $file       = $request->file('gambar');
@@ -127,7 +127,9 @@ class AdminGalleryController extends Controller
     public function destroy(string $id)
     {
         $gallery = Gallery::find($id);
-        unlink('.' . Storage::url($gallery->gambar));
+        if ($gallery->gambar && Storage::disk('public')->exists($gallery->gambar)) {
+            Storage::disk('public')->delete($gallery->gambar);
+        }
         $gallery->delete();
 
         return redirect()->back()->with('success', 'Berhasil menghapus data');
