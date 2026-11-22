@@ -82,7 +82,7 @@ class AdminBeritaController extends Controller
             'judul'         =>  $request->judul,
             'slug'          =>  $request->slug,
             'body'          =>  $request->body,
-            'gambar'        =>  $path . $fileName,
+            'gambar'        =>  $gambar,
             'excerpt'       =>  Str::limit(strip_tags($request->body), 100),
             'user_id'       =>  auth()->user()->id,
             'status_id'     =>  $request->status_id,

@@ -65,7 +65,7 @@ class AdminPerangkatDesaController extends Controller
         $perangkatDesa = PerangkatDesa::create([
             'nama'      => $request->nama,
             'jabatan'   => $request->jabatan,
-            'foto'      => $path . $fileName,
+            'foto'      => $foto,
             'user_id'   => auth()->user()->id
         ]);
 

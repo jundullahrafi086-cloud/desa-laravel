@@ -72,7 +72,7 @@ class AdminUmkmController extends Controller
         }
 
         Umkm::create([
-            'foto'          =>  $path . $fileName,
+            'foto'          =>  $foto,
             'produk'        =>  $request->produk,
             'slug'          =>  $request->slug,
             'harga'         =>  $request->harga,

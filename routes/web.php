@@ -201,6 +201,25 @@ Route::get('/linkstorage', function () {
     }
 });
 
+// Route bantuan untuk menjalankan Seeder Desa Kertamukti via browser di hosting
+Route::get('/seed-kertamukti', function () {
+    try {
+        $seeder = new \Database\Seeders\KertamuktiDesaSeeder();
+        $seeder->run();
+        return '<div style="font-family:sans-serif;padding:30px;max-width:650px;margin:40px auto;border:1px solid #bbf7d0;background:#f0fdf4;border-radius:8px;">'
+            . '<h2 style="color:#16a34a;margin-top:0;">✅ Seeder Desa Kertamukti Berhasil Dijalankan!</h2>'
+            . '<p>Seluruh data profil, sejarah, 10 riwayat kepala desa, 6 kedusunan (Kertamukti, Cibuyut, Karangmukti, Sukamaju, Jamilega, Mulyarasa), demografi (5.190 jiwa), perangkat desa, LKD, layanan, berita, pengumuman, UMKM, APBDes, perpustakaan, dan BLT telah berhasil diisi ke database.</p>'
+            . '<br><a href="/" style="display:inline-block;padding:10px 20px;background:#16a34a;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;">Lihat Beranda Desa Kertamukti</a>'
+            . '</div>';
+    } catch (\Throwable $e) {
+        return '<div style="font-family:sans-serif;padding:30px;max-width:650px;margin:40px auto;border:1px solid #fecaca;background:#fef2f2;border-radius:8px;">'
+            . '<h2 style="color:#dc2626;margin-top:0;">Gagal Menjalankan Seeder</h2>'
+            . '<p>' . htmlspecialchars($e->getMessage()) . '</p>'
+            . '<pre style="font-size:12px;overflow:auto;">' . htmlspecialchars($e->getTraceAsString()) . '</pre>'
+            . '</div>';
+    }
+});
+
 /* =====================
  * AUTH & DASHBOARD
  * ===================== */
