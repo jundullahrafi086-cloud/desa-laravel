@@ -37,7 +37,7 @@ class AdminIdentitasSitusController extends Controller
             if($situs->logo && Storage::disk('public')->exists($situs->logo)){
                 Storage::disk('public')->delete($situs->logo);
             }
-            $path       = 'img-logo/';
+            $path       = 'img-logo';
             $file       = $request->file('logo');
             $extension  = $file->getClientOriginalExtension(); 
             $fileName   = uniqid() . '.' . $extension; 

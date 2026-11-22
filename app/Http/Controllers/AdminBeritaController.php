@@ -63,7 +63,7 @@ class AdminBeritaController extends Controller
         ]);
 
         if($request->hasFile('gambar')){
-            $path       = 'img-berita/';
+            $path       = 'img-berita';
             $file       = $request->file('gambar');
             $extension  = $file->getClientOriginalExtension(); 
             $fileName   = uniqid() . '.' . $extension; 
@@ -134,7 +134,7 @@ class AdminBeritaController extends Controller
             if($berita->gambar && Storage::disk('public')->exists($berita->gambar)){
                 Storage::disk('public')->delete($berita->gambar);
             }
-            $path       = 'img-berita/';
+            $path       = 'img-berita';
             $file       = $request->file('gambar');
             $extension  = $file->getClientOriginalExtension(); 
             $fileName   = uniqid() . '.' . $extension; 

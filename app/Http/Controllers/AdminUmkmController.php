@@ -56,7 +56,7 @@ class AdminUmkmController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
-            $path       = 'img-produk/';
+            $path       = 'img-produk';
             $file       = $request->file('foto');
             $extension  = $file->getClientOriginalExtension();
             $fileName   = uniqid() . '.' . $extension;
@@ -125,7 +125,7 @@ class AdminUmkmController extends Controller
             if ($umkm->foto && Storage::disk('public')->exists($umkm->foto)) {
                 Storage::disk('public')->delete($umkm->foto);
             }
-            $path       = 'img-produk/';
+            $path       = 'img-produk';
             $file       = $request->file('foto');
             $extension  = $file->getClientOriginalExtension();
             $fileName   = uniqid() . '.' . $extension;

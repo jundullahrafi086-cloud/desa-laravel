@@ -44,7 +44,7 @@ class AdminGalleryController extends Controller
         ]);
 
         if ($request->hasFile('gambar')) {
-            $path       = 'img-gallery/';
+            $path       = 'img-gallery';
             $file       = $request->file('gambar');
             $extension  = $file->getClientOriginalExtension();
             $fileName   = uniqid() . '.' . $extension;
@@ -93,7 +93,7 @@ class AdminGalleryController extends Controller
             if ($gallery->gambar && Storage::disk('public')->exists($gallery->gambar)) {
                 Storage::disk('public')->delete($gallery->gambar);
             }
-            $path       = 'img-gallery/';
+            $path       = 'img-gallery';
             $file       = $request->file('gambar');
             $extension  = $file->getClientOriginalExtension();
             $fileName   = uniqid() . '.' . $extension;

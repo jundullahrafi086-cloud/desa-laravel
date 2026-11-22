@@ -47,7 +47,7 @@ class AdminPerangkatDesaController extends Controller
         ]);
 
         if($request->hasFile('foto')){
-            $path       = 'img-perangkat/';
+            $path       = 'img-perangkat';
             $file       = $request->file('foto');
             $extension  = $file->getClientOriginalExtension();
             $fileName   = uniqid(). '.' . $extension;
@@ -100,7 +100,7 @@ class AdminPerangkatDesaController extends Controller
             if($perangkatDesa->foto && Storage::disk('public')->exists($perangkatDesa->foto)){
                 Storage::disk('public')->delete($perangkatDesa->foto);
             }
-            $path       = 'img-perangkat/';
+            $path       = 'img-perangkat';
             $file       = $request->file('foto');
             $extension  = $file->getClientOriginalExtension(); 
             $fileName   = uniqid() . '.' . $extension; 

@@ -120,6 +120,43 @@ Route::get('/apbdesa/{anggaran:slug}', [\App\Http\Controllers\AnggaranController
 // BARU: open & download dokumen
 Route::get('/apbdesa/{anggaran:slug}/open', [AnggaranController::class, 'open'])->name('apbdes.open');
 Route::get('/apbdesa/{anggaran:slug}/download', [AnggaranController::class, 'download'])->name('apbdesa.download');
+// Fallback route untuk melayani file storage jika symlink tidak aktif di hosting
+Route::get('/storage/{path}', function ($path) {
+    // Bersihkan dan normalisasi path (tangani double slashes jika ada)
+    $normalized = preg_replace('#/+#', '/', ltrim($path, '/'));
+
+    $candidates = [
+        storage_path('app/public/' . $normalized),
+        storage_path('app/public/' . $path),
+    ];
+
+    $filePath = null;
+    foreach ($candidates as $candidate) {
+        if (file_exists($candidate) && is_file($candidate)) {
+            $filePath = $candidate;
+            break;
+        }
+    }
+
+    if (!$filePath) {
+        abort(404);
+    }
+
+    // Keamanan: pastikan path berada di dalam direktori storage/app/public
+    $basePath = realpath(storage_path('app/public'));
+    $realTarget = realpath($filePath);
+    if ($basePath && $realTarget && !str_starts_with($realTarget, $basePath)) {
+        abort(403);
+    }
+
+    $mimeType = @mime_content_type($filePath) ?: 'application/octet-stream';
+
+    return response()->file($filePath, [
+        'Content-Type'  => $mimeType,
+        'Cache-Control' => 'public, max-age=86400',
+    ]);
+})->where('path', '.*');
+
 // Route bantuan untuk membuat storage link di hosting via browser
 Route::get('/linkstorage', function () {
     $link = public_path('storage');
@@ -128,11 +165,39 @@ Route::get('/linkstorage', function () {
             @unlink($link);
         }
     }
+
+    if (!function_exists('symlink')) {
+        return '<div style="font-family:sans-serif;padding:30px;max-width:650px;margin:40px auto;border:1px solid #fed7aa;background:#fffbeb;border-radius:8px;">'
+            . '<h2 style="color:#d97706;margin-top:0;">ℹ️ Informasi Konfigurasi Storage</h2>'
+            . '<p>Fungsi PHP <code>symlink()</code> dinonaktifkan oleh server Hostinger. <b>Namun jangan khawatir!</b> Rute internal Laravel <code>/storage/...</code> telah aktif untuk menampilkan seluruh gambar secara otomatis.</p>'
+            . '<p style="color:#16a34a;font-weight:bold;">Gambar Anda sudah dapat tampil normal sekarang.</p>'
+            . '<hr style="border:none;border-top:1px solid #fde68a;margin:20px 0;">'
+            . '<p><b>(Opsional) Jika ingin mengaktifkan symlink asli di Hostinger:</b></p>'
+            . '<ol style="line-height:1.6;">'
+            . '<li>Buka <b>hPanel Hostinger</b> &gt; <b>Websites</b> &gt; Kelola domain Anda.</li>'
+            . '<li>Pilih menu <b>PHP Configuration</b> &gt; tab <b>PHP Functions</b> / <b>Disable Functions</b>.</li>'
+            . '<li>Hapus <code>symlink</code> dari daftar fungsi yang dinonaktifkan, lalu klik <b>Save</b>.</li>'
+            . '<li>Refresh halaman ini (<code>/linkstorage</code>).</li>'
+            . '</ol>'
+            . '<br><a href="/" style="display:inline-block;padding:10px 20px;background:#2563eb;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;">Kembali ke Beranda</a>'
+            . '</div>';
+    }
+
     try {
         \Illuminate\Support\Facades\Artisan::call('storage:link');
-        return '<h2 style="color:green;font-family:sans-serif;">Sukses! Storage link telah berhasil dibuat.</h2><p>' . \Illuminate\Support\Facades\Artisan::output() . '</p><a href="/">Kembali ke Beranda</a>';
-    } catch (\Exception $e) {
-        return '<h2 style="color:red;font-family:sans-serif;">Gagal: ' . $e->getMessage() . '</h2>';
+        return '<div style="font-family:sans-serif;padding:30px;max-width:650px;margin:40px auto;border:1px solid #bbf7d0;background:#f0fdf4;border-radius:8px;">'
+            . '<h2 style="color:#16a34a;margin-top:0;">✅ Sukses!</h2>'
+            . '<p>Storage link (symlink) telah berhasil dibuat:</p>'
+            . '<pre style="background:#e2e8f0;padding:10px;border-radius:4px;">' . \Illuminate\Support\Facades\Artisan::output() . '</pre>'
+            . '<br><a href="/" style="display:inline-block;padding:10px 20px;background:#2563eb;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;">Kembali ke Beranda</a>'
+            . '</div>';
+    } catch (\Throwable $e) {
+        return '<div style="font-family:sans-serif;padding:30px;max-width:650px;margin:40px auto;border:1px solid #fecaca;background:#fef2f2;border-radius:8px;">'
+            . '<h2 style="color:#dc2626;margin-top:0;">Gagal</h2>'
+            . '<p>' . htmlspecialchars($e->getMessage()) . '</p>'
+            . '<p><i>Namun jangan khawatir, gambar tetap akan ditampilkan melalui rute internal Laravel.</i></p>'
+            . '<br><a href="/" style="display:inline-block;padding:10px 20px;background:#2563eb;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;">Kembali ke Beranda</a>'
+            . '</div>';
     }
 });
 

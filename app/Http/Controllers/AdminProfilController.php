@@ -35,7 +35,7 @@ class AdminProfilController extends Controller
             if($user->foto && Storage::disk('public')->exists($user->foto)){
                 Storage::disk('public')->delete($user->foto);
             }
-            $path       = 'img-profil/';
+            $path       = 'img-profil';
             $file       = $request->file('foto');
             $extension  = $file->getClientOriginalExtension(); 
             $fileName   = uniqid() . '.' . $extension; 
