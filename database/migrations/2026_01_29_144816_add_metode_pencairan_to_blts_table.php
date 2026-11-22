@@ -12,7 +12,9 @@ return new class extends Migration
 public function up(): void
 {
     Schema::table('blts', function (Blueprint $table) {
-        $table->string('metode_pencairan')->nullable(); // cash atau transfer
+        if (!Schema::hasColumn('blts', 'metode_pencairan')) {
+            $table->string('metode_pencairan')->nullable(); // cash atau transfer
+        }
     });
 }
 
