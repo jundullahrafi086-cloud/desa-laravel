@@ -120,6 +120,22 @@ Route::get('/apbdesa/{anggaran:slug}', [\App\Http\Controllers\AnggaranController
 // BARU: open & download dokumen
 Route::get('/apbdesa/{anggaran:slug}/open', [AnggaranController::class, 'open'])->name('apbdes.open');
 Route::get('/apbdesa/{anggaran:slug}/download', [AnggaranController::class, 'download'])->name('apbdesa.download');
+// Route bantuan untuk membuat storage link di hosting via browser
+Route::get('/linkstorage', function () {
+    $link = public_path('storage');
+    if (is_link($link) || file_exists($link)) {
+        if (is_link($link)) {
+            @unlink($link);
+        }
+    }
+    try {
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        return '<h2 style="color:green;font-family:sans-serif;">Sukses! Storage link telah berhasil dibuat.</h2><p>' . \Illuminate\Support\Facades\Artisan::output() . '</p><a href="/">Kembali ke Beranda</a>';
+    } catch (\Exception $e) {
+        return '<h2 style="color:red;font-family:sans-serif;">Gagal: ' . $e->getMessage() . '</h2>';
+    }
+});
+
 /* =====================
  * AUTH & DASHBOARD
  * ===================== */
