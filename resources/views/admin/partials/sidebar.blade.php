@@ -187,14 +187,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="/admin/blt" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-cash"></i>
-                        </span>
-                        <span class="hide-menu">BLT</span>
-                    </a>
-                </li>
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="/admin/lkd" aria-expanded="false">

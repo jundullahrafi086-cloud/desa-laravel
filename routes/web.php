@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\BltController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\kategoriController; // (biarkan sesuai nama class yang kamu pakai)
 use App\Http\Controllers\WilayahController;
@@ -39,7 +38,6 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\Admin\LkdController;
 use App\Http\Controllers\Admin\LkdMemberController;
-use App\Http\Controllers\AdminBltController;
 use App\Http\Controllers\AdminBeritaController;
 use App\Http\Controllers\AdminKategoriController;
 use App\Http\Controllers\AdminWilayahController;
@@ -103,8 +101,6 @@ Route::get('/umkm', [UmkmController::class, 'index']);
 Route::get('/umkm/{umkm:slug}', [UmkmController::class, 'detail']);
 Route::get('/kontak', [KontakController::class, 'index']);
 Route::get('/layanan', [LayananController::class, 'index']);
-Route::get('/blt', [BltController::class, 'index'])->name('blt.public');
-Route::post('/blt/pilih-metode', [BltController::class, 'updateMetode'])->name('blt.pilih-metode');
 
 
 /* GALERI (Publik) */
@@ -208,7 +204,7 @@ Route::get('/seed-kertamukti', function () {
         $seeder->run();
         return '<div style="font-family:sans-serif;padding:30px;max-width:650px;margin:40px auto;border:1px solid #bbf7d0;background:#f0fdf4;border-radius:8px;">'
             . '<h2 style="color:#16a34a;margin-top:0;">✅ Seeder Desa Kertamukti Berhasil Dijalankan!</h2>'
-            . '<p>Seluruh data profil, sejarah, 10 riwayat kepala desa, 6 kedusunan (Kertamukti, Cibuyut, Karangmukti, Sukamaju, Jamilega, Mulyarasa), demografi (5.190 jiwa), perangkat desa, LKD, layanan, berita, pengumuman, UMKM, APBDes, perpustakaan, dan BLT telah berhasil diisi ke database.</p>'
+            . '<p>Seluruh data profil, sejarah, 10 riwayat kepala desa, 6 kedusunan (Kertamukti, Cibuyut, Karangmukti, Sukamaju, Jamilega, Mulyarasa), demografi (5.190 jiwa), perangkat desa, LKD, layanan, berita, pengumuman, UMKM, APBDes, dan perpustakaan telah berhasil diisi ke database.</p>'
             . '<br><a href="/" style="display:inline-block;padding:10px 20px;background:#16a34a;color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;">Lihat Beranda Desa Kertamukti</a>'
             . '</div>';
     } catch (\Throwable $e) {
@@ -305,12 +301,6 @@ Route::delete('lkd/{lkd}/members/{member}', [LkdMemberController::class, 'destro
 
     /* Pekerjaan */
     Route::resource('pekerjaan', AdminPekerjaanController::class);
-
-    /* Blt */
-    Route::get('blt/export', [AdminBltController::class, 'export'])->name('blt.export');
-    Route::post('blt/import', [AdminBltController::class, 'import'])->name('blt.import');
-    Route::resource('blt', AdminBltController::class);
-
 
     /* UMKM */
     Route::get('umkm/slug', [AdminUmkmController::class, 'slug']);

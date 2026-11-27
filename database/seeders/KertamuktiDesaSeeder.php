@@ -33,7 +33,6 @@ use App\Models\Announcement;
 use App\Models\Umkm;
 use App\Models\Anggaran;
 use App\Models\Buku;
-use App\Models\Blt;
 use App\Models\Slider;
 use App\Models\Gallery;
 
@@ -667,18 +666,13 @@ HTML;
         }
 
         // 20. Pengumuman Desa Kertamukti
+        Announcement::where('slug', 'informasi-penyaluran-blt-dana-desa-kertamukti')->delete();
         $pengumumanList = [
             [
                 'judul'          => 'Jadwal Pelayanan Administrasi Kantor Desa Kertamukti',
                 'slug'           => 'jadwal-pelayanan-administrasi-kantor-desa-kertamukti',
                 'views'          => 84,
                 'isi_pengumuman' => '<p>Diberitahukan kepada seluruh warga masyarakat Desa Kertamukti bahwa pelayanan administrasi kependudukan dan surat-menyurat di Kantor Kepala Desa Kertamukti dibuka setiap hari kerja:</p><ul><li><strong>Senin – Kamis:</strong> Pukul 08.00 – 15.00 WIB</li><li><strong>Jumat:</strong> Pukul 08.00 – 14.30 WIB</li><li><strong>Sabtu – Minggu & Hari Libur Nasional:</strong> Tutup</li></ul><p>Warga yang hendak mengurus dokumen dimohon membawa surat pengantar RT/RW serta berkas persyaratan lengkap (KTP-el & Kartu Keluarga).</p>',
-            ],
-            [
-                'judul'          => 'Informasi Penyaluran Bantuan Langsung Tunai (BLT) Dana Desa Kertamukti',
-                'slug'           => 'informasi-penyaluran-blt-dana-desa-kertamukti',
-                'views'          => 132,
-                'isi_pengumuman' => '<p>Pemerintah Desa Kertamukti menginformasikan kepada Keluarga Penerima Manfaat (KPM) Bantuan Langsung Tunai (BLT) Dana Desa dari 6 kedusunan (Kertamukti, Cibuyut, Karangmukti, Sukamaju, Jamilega, dan Mulyarasa) bahwa pengecekan status penerima dapat dilakukan secara mandiri melalui menu <strong>Cek BLT</strong> pada website resmi <em>kertamuktidesa.id</em> dengan memasukkan 16 digit NIK.</p><p>Saat menghadiri penyaluran di Aula Desa Kertamukti, KPM wajib membawa KTP-el asli dan Kartu Keluarga (KK).</p>',
             ],
             [
                 'judul'          => 'Jadwal Posyandu Balita & Pemeriksaan Kesehatan Lansia Bulanan',
@@ -783,7 +777,7 @@ HTML;
             [
                 'judul'      => 'Transparansi APBDes Desa Kertamukti Tahun Anggaran 2025',
                 'slug'       => 'transparansi-apbdes-desa-kertamukti-tahun-anggaran-2025',
-                'keterangan' => '<p>Ringkasan Anggaran Pendapatan dan Belanja Desa (APBDes) Desa Kertamukti, Kecamatan Ciawi, Kabupaten Tasikmalaya Tahun Anggaran 2025:</p><ul><li><strong>Pendapatan Desa:</strong> Bersumber dari Dana Desa (DD), Alokasi Dana Desa (ADD), Bagi Hasil Pajak dan Retribusi Daerah (BHPRD), Bantuan Keuangan Provinsi/Kabupaten, serta Pendapatan Asli Desa (PADes).</li><li><strong>Belanja Desa:</strong> Dialokasikan untuk Bidang Penyelenggaraan Pemerintahan Desa, Bidang Pelaksanaan Pembangunan Desa (Infrastruktur 6 Kedusunan & Pustu), Bidang Pembinaan Kemasyarakatan, Bidang Pemberdayaan Masyarakat (Pertanian & UMKM), serta Bidang Penanggulangan Bencana, Darurat, dan Mendesak Desa (BLT Dana Desa).</li></ul>',
+                'keterangan' => '<p>Ringkasan Anggaran Pendapatan dan Belanja Desa (APBDes) Desa Kertamukti, Kecamatan Ciawi, Kabupaten Tasikmalaya Tahun Anggaran 2025:</p><ul><li><strong>Pendapatan Desa:</strong> Bersumber dari Dana Desa (DD), Alokasi Dana Desa (ADD), Bagi Hasil Pajak dan Retribusi Daerah (BHPRD), Bantuan Keuangan Provinsi/Kabupaten, serta Pendapatan Asli Desa (PADes).</li><li><strong>Belanja Desa:</strong> Dialokasikan untuk Bidang Penyelenggaraan Pemerintahan Desa, Bidang Pelaksanaan Pembangunan Desa (Infrastruktur 6 Kedusunan & Pustu), Bidang Pembinaan Kemasyarakatan, Bidang Pemberdayaan Masyarakat (Pertanian & UMKM), serta Bidang Penanggulangan Bencana, Darurat, dan Mendesak Desa.</li></ul>',
             ],
             [
                 'judul'      => 'Laporan Realisasi Pelaksanaan APBDes Desa Kertamukti Tahun 2024',
@@ -853,73 +847,7 @@ HTML;
             );
         }
 
-        // 24. Data Contoh Penerima BLT Dana Desa (6 Kedusunan Desa Kertamukti)
-        // Kode wilayah Kab. Tasikmalaya (3206), Kec. Ciawi (320618)
-        $bltList = [
-            [
-                'nik'              => '3206180101600001',
-                'kk'               => '3206180101100001',
-                'nama'             => 'Ujang Suryaman',
-                'alamat'           => 'Dusun Kertamukti RT 001 / RW 001, Desa Kertamukti, Kec. Ciawi',
-                'metode_pencairan' => 'cash',
-                'tahun'            => 2025,
-                'status'           => 'cair',
-            ],
-            [
-                'nik'              => '3206184505650002',
-                'kk'               => '3206180101100002',
-                'nama'             => 'Euis Komariah',
-                'alamat'           => 'Dusun Cibuyut RT 002 / RW 003, Desa Kertamukti, Kec. Ciawi',
-                'metode_pencairan' => 'cash',
-                'tahun'            => 2025,
-                'status'           => 'cair',
-            ],
-            [
-                'nik'              => '3206181203580003',
-                'kk'               => '3206180101100003',
-                'nama'             => 'Asep Saepudin',
-                'alamat'           => 'Dusun Karangmukti RT 001 / RW 005, Desa Kertamukti, Kec. Ciawi',
-                'metode_pencairan' => 'cash',
-                'tahun'            => 2025,
-                'status'           => 'disetujui',
-            ],
-            [
-                'nik'              => '3206185008620004',
-                'kk'               => '3206180101100004',
-                'nama'             => 'Kokom Komalasari',
-                'alamat'           => 'Dusun Sukamaju RT 003 / RW 007, Desa Kertamukti, Kec. Ciawi',
-                'metode_pencairan' => 'cash',
-                'tahun'            => 2025,
-                'status'           => 'cair',
-            ],
-            [
-                'nik'              => '3206181511550005',
-                'kk'               => '3206180101100005',
-                'nama'             => 'Maman Abdurrahman',
-                'alamat'           => 'Dusun Jamilega RT 002 / RW 009, Desa Kertamukti, Kec. Ciawi',
-                'metode_pencairan' => 'cash',
-                'tahun'            => 2025,
-                'status'           => 'disetujui',
-            ],
-            [
-                'nik'              => '3206186002590006',
-                'kk'               => '3206180101100006',
-                'nama'             => 'Nining Yuningsih',
-                'alamat'           => 'Dusun Mulyarasa RT 001 / RW 011, Desa Kertamukti, Kec. Ciawi',
-                'metode_pencairan' => null,
-                'tahun'            => 2025,
-                'status'           => 'pending',
-            ],
-        ];
-
-        foreach ($bltList as $blt) {
-            Blt::updateOrCreate(
-                ['nik' => $blt['nik']],
-                $blt
-            );
-        }
-
-        // 25. Slider Beranda (3 Slide Utama Desa Kertamukti)
+        // 24. Slider Beranda (3 Slide Utama Desa Kertamukti)
         $sliderList = [
             [
                 'judul'     => 'Selamat Datang di Portal Resmi Desa Kertamukti',
@@ -1470,6 +1398,8 @@ HTML;
                 }
             });
         }
+
+        Schema::dropIfExists('blts');
     }
 
     /**

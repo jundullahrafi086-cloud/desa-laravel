@@ -244,7 +244,6 @@
         </li>
         <li><a class="nav-link scrollto {{ request()->is('umkm*') ? 'active' : '' }}" href="/umkm">UMKM</a></li>
         <li><a class="nav-link scrollto {{ request()->is('layanan*') ? 'active' : '' }}" href="/layanan">Layanan</a></li>
-        <li><a class="nav-link scrollto {{ request()->is('blt*') ? 'active' : '' }}" href="/blt">Cek BLT</a></li>
         <li><a class="nav-link scrollto {{ request()->is('kontak*') ? 'active' : '' }}" href="/kontak">Kontak Kami</a></li>
         @auth
           <li><a href="/dashboard" class="nav-link scrollto">Dashboard</a></li>
@@ -293,7 +292,6 @@
     </li>
     <li><a href="/umkm" class="{{ request()->is('umkm*') ? 'active' : '' }}">UMKM</a></li>
     <li><a href="/layanan" class="{{ request()->is('layanan*') ? 'active' : '' }}">Layanan</a></li>
-    <li><a href="/blt" class="{{ request()->is('blt*') ? 'active' : '' }}">Cek BLT</a></li>
     <li><a href="/kontak" class="{{ request()->is('kontak*') ? 'active' : '' }}">Kontak Kami</a></li>
     @auth
       <li><a href="/dashboard">Dashboard Admin</a></li>
